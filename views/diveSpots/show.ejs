@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plunge</title>
+</head>
+<body>
+    <h1>Dive Spot <%= diveSpot.title %></h1>
+    <h2><%= diveSpot.location %></h2>
+    <p><%= diveSpot.description %></p>
+    <p><a href="/diveSpots/<%= diveSpot._id %>/edit">Edit</a></p>
+    <p>
+        <form action="/diveSpots/<%= diveSpot._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </p>
+
+    <footer>
+        <a href="/diveSpots">All dive spots</a>
+    </footer>
+</body>
+</html>

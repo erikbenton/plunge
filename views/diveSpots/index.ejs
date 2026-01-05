@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plunge</title>
+</head>
+<body>
+    <h1>Dive Spots</h1>
+    <div>
+        <a href="/diveSpots/new">Add dive spot</a>
+    </div>
+    <ul>
+        <% for (let diveSpot of diveSpots) { %>
+            <li><a href="/diveSpots/<%= diveSpot._id %>"><%= diveSpot.title %></li></a></li>
+        <% } %>
+    </ul>
+</body>
+</html>
