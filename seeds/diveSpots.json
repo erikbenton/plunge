@@ -1,0 +1,227 @@
+[
+  {
+    "title": "Molokini Crater",
+    "description": "Crescent-shaped volcanic crater with exceptional visibility and reef biodiversity.",
+    "depth": 148,
+    "location": "Maui, Hawaii, USA",
+    "latitude": 20.6319,
+    "longitude": -156.4951
+  },
+  {
+    "title": "Cathedrals I",
+    "description": "Lava tubes forming cathedral-like chambers filled with ambient light.",
+    "depth": 82,
+    "location": "Lanai, Hawaii, USA",
+    "latitude": 20.7862,
+    "longitude": -156.9517
+  },
+  {
+    "title": "USS YO-257 Wreck",
+    "description": "Sunken Navy oiler turned artificial reef with turtles and reef sharks.",
+    "depth": 115,
+    "location": "Honolulu, Oahu, Hawaii, USA",
+    "latitude": 21.2565,
+    "longitude": -157.8226
+  },
+  {
+    "title": "Turtle Canyon",
+    "description": "Popular reef system frequented by Hawaiian green sea turtles.",
+    "depth": 72,
+    "location": "Waikiki, Oahu, Hawaii, USA",
+    "latitude": 21.2757,
+    "longitude": -157.8422
+  },
+
+  {
+    "title": "Great Blue Hole",
+    "description": "Massive offshore sinkhole with stalactites and deep technical profiles.",
+    "depth": 407,
+    "location": "Lighthouse Reef, Belize",
+    "latitude": 17.3150,
+    "longitude": -87.5340
+  },
+  {
+    "title": "Bloody Bay Wall",
+    "description": "Vertical wall plunge starting just offshore with rich sponge life.",
+    "depth": 130,
+    "location": "Little Cayman, Cayman Islands",
+    "latitude": 19.7066,
+    "longitude": -80.0623
+  },
+  {
+    "title": "Devil’s Grotto",
+    "description": "Caverns and swim-throughs with dramatic light rays.",
+    "depth": 95,
+    "location": "George Town, Grand Cayman",
+    "latitude": 19.3133,
+    "longitude": -81.3819
+  },
+  {
+    "title": "Dean’s Blue Hole Reef",
+    "description": "Shallow reef surrounding the deepest blue hole on Earth.",
+    "depth": 60,
+    "location": "Long Island, Bahamas",
+    "latitude": 23.1036,
+    "longitude": -75.0025
+  },
+
+  {
+    "title": "SS Thistlegorm",
+    "description": "World-class WWII wreck with cargo of vehicles and supplies.",
+    "depth": 98,
+    "location": "Strait of Gubal, Red Sea, Egypt",
+    "latitude": 27.8147,
+    "longitude": 33.9218
+  },
+  {
+    "title": "Shark Reef",
+    "description": "Current-swept reef with gray reef sharks and barracuda.",
+    "depth": 105,
+    "location": "Ras Mohammed National Park, Egypt",
+    "latitude": 27.7305,
+    "longitude": 34.2588
+  },
+  {
+    "title": "Elphinstone Reef",
+    "description": "Remote offshore reef famous for oceanic whitetip sharks.",
+    "depth": 130,
+    "location": "Marsa Alam, Egypt",
+    "latitude": 25.3203,
+    "longitude": 34.8517
+  },
+
+  {
+    "title": "Medes Islands Marine Reserve",
+    "description": "Protected reserve with large groupers and dense fish schools.",
+    "depth": 92,
+    "location": "L’Estartit, Costa Brava, Spain",
+    "latitude": 42.0523,
+    "longitude": 3.2276
+  },
+  {
+    "title": "Blue Cave",
+    "description": "Sunlit cavern producing intense blue hues.",
+    "depth": 60,
+    "location": "Zakynthos Island, Greece",
+    "latitude": 37.8750,
+    "longitude": 20.6242
+  },
+  {
+    "title": "Secca della Colombara",
+    "description": "Volcanic seamount with gorgonians and barracuda.",
+    "depth": 115,
+    "location": "Ustica Island, Sicily, Italy",
+    "latitude": 38.7047,
+    "longitude": 13.1872
+  },
+
+  {
+    "title": "Barracuda Point",
+    "description": "High-current drift dive with massive fish tornadoes.",
+    "depth": 131,
+    "location": "Sipadan Island, Sabah, Malaysia",
+    "latitude": 4.1149,
+    "longitude": 118.6283
+  },
+  {
+    "title": "South Point",
+    "description": "Steep wall dive with turtles and reef sharks.",
+    "depth": 105,
+    "location": "Sipadan Island, Sabah, Malaysia",
+    "latitude": 4.1062,
+    "longitude": 118.6317
+  },
+  {
+    "title": "Richelieu Rock",
+    "description": "Submerged pinnacle with purple soft corals and whale sharks.",
+    "depth": 115,
+    "location": "Surin Islands, Andaman Sea, Thailand",
+    "latitude": 9.3643,
+    "longitude": 97.8155
+  },
+  {
+    "title": "Hin Daeng",
+    "description": "Deep red rock pinnacle with manta ray encounters.",
+    "depth": 131,
+    "location": "Krabi Province, Thailand",
+    "latitude": 7.3125,
+    "longitude": 99.0706
+  },
+
+  {
+    "title": "Manta Point",
+    "description": "Reliable manta ray cleaning station.",
+    "depth": 72,
+    "location": "Nusa Penida, Bali, Indonesia",
+    "latitude": -8.7365,
+    "longitude": 115.5447
+  },
+  {
+    "title": "USAT Liberty Wreck",
+    "description": "Shore-accessible WWII wreck covered in coral growth.",
+    "depth": 98,
+    "location": "Tulamben, Bali, Indonesia",
+    "latitude": -8.2736,
+    "longitude": 115.5921
+  },
+  {
+    "title": "Cape Kri",
+    "description": "Record-breaking biodiversity hotspot.",
+    "depth": 90,
+    "location": "Raja Ampat, West Papua, Indonesia",
+    "latitude": -0.5637,
+    "longitude": 130.6894
+  },
+
+  {
+    "title": "Yongala Wreck",
+    "description": "Historic passenger shipwreck teeming with marine life.",
+    "depth": 110,
+    "location": "Cape Bowling Green, Queensland, Australia",
+    "latitude": -19.3050,
+    "longitude": 147.6233
+  },
+  {
+    "title": "Cod Hole",
+    "description": "Famous for friendly potato cod encounters.",
+    "depth": 82,
+    "location": "Ribbon Reefs, Great Barrier Reef, Australia",
+    "latitude": -14.6769,
+    "longitude": 145.4736
+  },
+
+  {
+    "title": "Blue Corner",
+    "description": "Strong-current dive with reef sharks and jacks.",
+    "depth": 100,
+    "location": "Ngemelis Wall, Palau",
+    "latitude": 7.2464,
+    "longitude": 134.2544
+  },
+  {
+    "title": "Chuuk Lagoon Wreck Fleet",
+    "description": "WWII shipwrecks scattered across lagoon floor.",
+    "depth": 120,
+    "location": "Chuuk Lagoon, Micronesia",
+    "latitude": 7.4606,
+    "longitude": 151.8430
+  },
+
+  {
+    "title": "Silfra Fissure",
+    "description": "Cold freshwater dive between two tectonic plates.",
+    "depth": 60,
+    "location": "Thingvellir National Park, Iceland",
+    "latitude": 64.2550,
+    "longitude": -21.1236
+  },
+
+  {
+    "title": "Darwin’s Arch",
+    "description": "Advanced dive with hammerhead shark aggregations.",
+    "depth": 95,
+    "location": "Darwin Island, Galapagos, Ecuador",
+    "latitude": 1.6784,
+    "longitude": -91.9896
+  }
+]

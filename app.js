@@ -20,10 +20,9 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/makeDiveSpot", async (req, res) => {
-  const dive = new DiveSpot({ title: "Alki Beach", depth: 25, description: "Small rock reef with good night life." });
-  await dive.save();
-  res.send(dive);
+app.get("/diveSpots", async (req, res) => {
+  const dives = await DiveSpot.find({});
+  res.send(dives);
 });
 
 app.listen(3003, () => {
