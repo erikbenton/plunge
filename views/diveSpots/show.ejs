@@ -1,23 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plunge</title>
-</head>
-<body>
-    <h1>Dive Spot <%= diveSpot.title %></h1>
-    <h2><%= diveSpot.location %></h2>
-    <p><%= diveSpot.description %></p>
-    <p><a href="/diveSpots/<%= diveSpot._id %>/edit">Edit</a></p>
-    <p>
-        <form action="/diveSpots/<%= diveSpot._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete</button>
-        </form>
-    </p>
+<%- layout("layouts/boilerplate") %>
 
-    <footer>
-        <a href="/diveSpots">All dive spots</a>
-    </footer>
-</body>
-</html>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mb-3">
+            <img src="<%= diveSpot.image %>" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"><%= diveSpot.title %></h5>
+              <p class="card-text"><%= diveSpot.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= diveSpot.location %></li>
+              <li class="list-group-item">Avg. Depth of <%= diveSpot.depth %> ft</li>
+            </ul>
+            <div class="card-body">
+              <a class="card-link btn btn-info" href="/diveSpots/<%= diveSpot._id %>/edit">Edit</a>
+              <form class="d-inline" action="/diveSpots/<%= diveSpot._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+        <footer class="mb-3">
+            <a href="/diveSpots">All dive spots</a>
+        </footer>
+    </div>
+</div>

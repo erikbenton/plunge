@@ -16,6 +16,7 @@ const seedDb = async () => {
 
   const d = new DiveSpot({
     title: "Alki Beach",
+    image: "/img/dive10.jpg",
     depth: 20,
     description: "Small rock reef with good night life.",
     location: "Seattle, WA",

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const logger = require("./utils/requestLogger");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 const DiveSpot = require("./models/diveSpot");
 
 mongoose.connect("mongodb://localhost:27017/plunge")
@@ -15,6 +16,9 @@ mongoose.connect("mongodb://localhost:27017/plunge")
 
 const app = express();
 
+// Static files for hosting
+app.use(express.static(path.join(__dirname, "public")));
+
 // parsing API JSON data
 app.use(express.json());
 // parsing form request body json
@@ -23,6 +27,7 @@ app.use(logger);
 app.use(methodOverride("_method"));
 
 // EJS configuration
+app.engine('ejs', ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -49,6 +54,7 @@ app.post("/diveSpots", async (req, res) => {
 app.get("/diveSpots/:id", async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findById(id);
+  console.log(diveSpot);
   res.render("diveSpots/show", { diveSpot });
 });
 
