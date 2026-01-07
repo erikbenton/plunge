@@ -4,7 +4,10 @@ const path = require("path");
 const logger = require("./utils/requestLogger");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const ejsHelpers = require("./utils/ejsHelpers");
 const DiveSpot = require("./models/diveSpot");
+const middleWare = require("./utils/middleWare");
+const { validateDiveSpot } = require("./utils/validations");
 
 mongoose.connect("mongodb://localhost:27017/plunge")
   .then(() => {
@@ -30,6 +33,7 @@ app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.locals.ejs = ejsHelpers;
 
 
 app.get("/", (req, res) => {
@@ -45,7 +49,7 @@ app.get("/diveSpots/new", (req, res) => {
   res.render("diveSpots/new");
 });
 
-app.post("/diveSpots", async (req, res) => {
+app.post("/diveSpots", validateDiveSpot, async (req, res, next) => {
   const diveSpot = new DiveSpot(req.body.diveSpot);
   await diveSpot.save();
   res.redirect(`/diveSpots/${diveSpot._id}`);
@@ -54,7 +58,6 @@ app.post("/diveSpots", async (req, res) => {
 app.get("/diveSpots/:id", async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findById(id);
-  console.log(diveSpot);
   res.render("diveSpots/show", { diveSpot });
 });
 
@@ -64,7 +67,7 @@ app.get("/diveSpots/:id/edit", async (req, res) => {
   res.render("diveSpots/edit", { diveSpot });
 });
 
-app.put("/diveSpots/:id", async (req, res) => {
+app.put("/diveSpots/:id", validateDiveSpot, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot });
   res.redirect(`/diveSpots/${diveSpot._id}`);
@@ -75,5 +78,8 @@ app.delete("/diveSpots/:id", async (req, res) => {
   const diveSpot = await DiveSpot.findByIdAndDelete(id);
   res.redirect("/diveSpots");
 });
+
+app.use(middleWare.unknownEndpoint);
+app.use(middleWare.errorHandler);
 
 module.exports = app;

@@ -3,29 +3,29 @@
 <div class="row">
     <h1 class="text-center">Edit Dive Spot</h1>
     <div class="col-6 offset-3">
-        <form action="/diveSpots/<%= diveSpot._id %>?_method=PUT" method="POST">
+        <form action="/diveSpots/<%= diveSpot._id %>?_method=PUT" method="POST" class="validated-form" novalidate>
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="diveSpot[title]" value="<%= diveSpot.title %>">
+                <input class="form-control" type="text" id="title" name="diveSpot[title]" value="<%= diveSpot.title %>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id="location" name="diveSpot[location]" value="<%= diveSpot.location %>">
+                <input class="form-control" type="text" id="location" name="diveSpot[location]" value="<%= diveSpot.location %>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image URL</label>
-                <input class="form-control" type="text" id="image" name="diveSpot[image]" value="<%= diveSpot.image %>">
+                <input class="form-control" type="text" id="image" name="diveSpot[image]" value="<%= diveSpot.image %>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="depth">Avg. Depth</label>
                 <div class="input-group mb-3">
-                    <input type="number" class="form-control" id="depth" name="diveSpot[depth]" placeholder="0" value="<%= diveSpot.depth %>" aria-label="Username" aria-describedby="depth-units">
+                    <input type="number" class="form-control" id="depth" name="diveSpot[depth]" placeholder="0" value="<%= diveSpot.depth %>" aria-label="depth" aria-describedby="depth-units" required>
                     <span class="input-group-text" id="depth-units">ft</span>
                 </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text" id="description" name="diveSpot[description]"><%= diveSpot.description %></textarea>
+                <textarea class="form-control" type="text" id="description" name="diveSpot[description]" required><%= diveSpot.description %></textarea>
             </div>
             <div class="mb-3">
                 <button class="btn btn-info">Update Dive Spot</button>
