@@ -8,7 +8,13 @@ const DiveSpotSchema = new Schema({
   depth: Number,
   location: String,
   latitude: Number,
-  longitude: Number
+  longitude: Number,
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review"
+    }
+  ]
 });
 
 module.exports = mongoose.model("DiveSpot", DiveSpotSchema);
