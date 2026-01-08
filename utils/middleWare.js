@@ -1,7 +1,7 @@
 const ExpressError = require("./ExpressError");
 
 const unknownEndpoint = (req, res, next) => {
-  next(new ExpressError("Page Not Found", 404));
+  next(new ExpressError("Page Not Found: " + req.path, 404));
 };
 
 const errorHandler = (error, req, res, next) => {

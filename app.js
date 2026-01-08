@@ -6,8 +6,9 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ejsHelpers = require("./utils/ejsHelpers");
 const DiveSpot = require("./models/diveSpot");
+const Review = require("./models/review");
 const middleWare = require("./utils/middleWare");
-const { validateDiveSpot } = require("./utils/validations");
+const { validateDiveSpot, validateReview } = require("./utils/validations");
 
 mongoose.connect("mongodb://localhost:27017/plunge")
   .then(() => {
@@ -57,7 +58,10 @@ app.post("/diveSpots", validateDiveSpot, async (req, res, next) => {
 
 app.get("/diveSpots/:id", async (req, res) => {
   const { id } = req.params;
-  const diveSpot = await DiveSpot.findById(id);
+  const diveSpot = await DiveSpot
+    .findById(id)
+    .populate("reviews");
+
   res.render("diveSpots/show", { diveSpot });
 });
 
@@ -77,6 +81,22 @@ app.delete("/diveSpots/:id", async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndDelete(id);
   res.redirect("/diveSpots");
+});
+
+app.post("/diveSpots/:id/reviews", validateReview, async (req, res) => {
+  const diveSpot = await DiveSpot.findById(req.params.id);
+  const review = new Review(req.body.review);
+  diveSpot.reviews.push(review);
+  await review.save();
+  await diveSpot.save();
+  res.redirect(`/diveSpots/${diveSpot._id}`);
+});
+
+app.delete("/diveSpots/:id/reviews/:reviewId", async (req, res) => {
+  const { id, reviewId } = req.params;
+  await DiveSpot.findByIdAndUpdate(id, { $pull: { reviews: reviewId }});
+  await Review.findByIdAndDelete(reviewId);
+  res.redirect(`/diveSpots/${id}`);
 });
 
 app.use(middleWare.unknownEndpoint);

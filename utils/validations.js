@@ -1,17 +1,23 @@
 const ExpressError = require("./ExpressError");
-const { diveSpotSchema } = require("./schemas");
+const { diveSpotSchema, reviewSchema } = require("./schemas");
 
-const validateDiveSpot = async (req, res, next) => {
-  try {
-    await diveSpotSchema.validateAsync(req.body);
-  } catch (err) {
-    const messages = err.details.map(d => d.message).join("/r/n");
-    throw new ExpressError(messages, 400);
-  }
+const validateSchema = (schema) => {
+  return async (req, res, next) => {
+    try {
+      await schema.validateAsync(req.body);
+    } catch (err) {
+      const messages = err.details.map(d => d.message).join("/r/n");
+      throw new ExpressError(messages, 400);
+    }
 
-  next();
-};
+    next();
+  };
+}
+
+const validateDiveSpot = validateSchema(diveSpotSchema);
+const validateReview = validateSchema(reviewSchema);
 
 module.exports = {
-  validateDiveSpot
+  validateDiveSpot,
+  validateReview
 }

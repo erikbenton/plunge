@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Review = require("./review");
 const Schema = mongoose.Schema;
 
 const DiveSpotSchema = new Schema({
@@ -15,6 +16,21 @@ const DiveSpotSchema = new Schema({
       ref: "Review"
     }
   ]
+});
+
+DiveSpotSchema.post("findOneAndDelete", async (doc) => {
+  try {
+    if (doc) {
+      await Review.deleteMany({
+        _id: {
+          $in: doc.reviews
+        }
+      });
+    }
+  } catch (err) {
+    console.log(err.message);
+    throw err;
+  }
 });
 
 module.exports = mongoose.model("DiveSpot", DiveSpotSchema);
