@@ -15,9 +15,10 @@
 
 <body class="d-flex flex-column vh-100">
     <%- include("../partials/navbar") %>
-    <%= notifications.success %>
-
+    
     <main class="container mt-5">
+        <%- include("../partials/alert", notifications) %>
+
         <%- body %>
     </main>
 

@@ -1,13 +1,19 @@
-let notifications = {};
+const userNotifications = {};
 
-const setNotification = (property, value) => {
-  notifications[property] = value;
+const setNotification = (user, property, value) => {
+  if (!userNotifications[user]) {
+    userNotifications[user] = { expires: Date.now() + 1000 };
+  }
+  userNotifications[user][property] = value;
 }
 
-const getNotifications = () => {
-  const notificationCopy = { ...notifications };
-  notifications = {};
-  return notificationCopy;
+const getNotifications = (user) => {
+  if (userNotifications[user]) {
+    const notifications = userNotifications[user];
+    delete userNotifications[user]
+    return notifications;
+  }
+  return {};
 }
 
 module.exports = {
