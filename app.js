@@ -5,6 +5,7 @@ const logger = require("./utils/requestLogger");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ejsHelpers = require("./utils/ejsHelpers");
+const session = require("express-session");
 const middleWare = require("./utils/middleWare");
 const diveSpotRouter = require("./controllers/diveSpots");
 const reviewRouter = require("./controllers/reviews");
@@ -35,6 +36,20 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.locals.ejs = ejsHelpers; // adding some helpers to use in EJS files
 
+// Session configuration
+const sessionConfig = {
+  secret: "thisshouldbeabettersecret",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    httpOnly: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7
+  }
+};
+
+app.use(session(sessionConfig));
+
 app.get("/", (req, res) => {
   res.render("home");
 });
@@ -43,6 +58,7 @@ app.get("/", (req, res) => {
 app.use("/diveSpots", diveSpotRouter);
 app.use("/diveSpots/:id/reviews", reviewRouter);
 
+// Handle unknown/errors
 app.use(middleWare.unknownEndpoint);
 app.use(middleWare.errorHandler);
 
