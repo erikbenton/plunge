@@ -1,5 +1,6 @@
 const diveSpotRouter = require("express").Router();
 const DiveSpot = require("../models/diveSpot");
+const { setNotification } = require("../utils/notifications");
 const { validateDiveSpot } = require("../utils/validations");
 
 diveSpotRouter.get("/", async (req, res) => {
@@ -14,6 +15,7 @@ diveSpotRouter.get("/new", (req, res) => {
 diveSpotRouter.post("/", validateDiveSpot, async (req, res, next) => {
   const diveSpot = new DiveSpot(req.body.diveSpot);
   await diveSpot.save();
+  setNotification("success", "Successfully made a new dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
@@ -35,6 +37,7 @@ diveSpotRouter.get("/:id/edit", async (req, res) => {
 diveSpotRouter.put("/:id", validateDiveSpot, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot });
+  setNotification("success", "Successfully updated the dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 

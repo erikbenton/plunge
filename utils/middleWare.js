@@ -1,4 +1,11 @@
 const ExpressError = require("./ExpressError");
+const { getNotifications } = require("./notifications");
+
+const checkNotifications = (req, res, next) => {
+  const notifications = getNotifications();
+  res.locals.notifications = notifications;
+  next();
+};
 
 const unknownEndpoint = (req, res, next) => {
   next(new ExpressError("Page Not Found: " + req.path, 404));
@@ -13,6 +20,7 @@ const errorHandler = (error, req, res, next) => {
 };
 
 module.exports = {
+  checkNotifications,
   unknownEndpoint,
   errorHandler
 }

@@ -50,6 +50,9 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+// Notifications
+app.use(middleWare.checkNotifications);
+
 app.get("/", (req, res) => {
   res.render("home");
 });
