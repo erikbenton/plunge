@@ -4,11 +4,13 @@ const path = require("path");
 const logger = require("./utils/requestLogger");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const ejsHelpers = require("./utils/ejsHelpers");
 const session = require("express-session");
 const middleWare = require("./utils/middleWare");
 const diveSpotRouter = require("./controllers/diveSpots");
 const reviewRouter = require("./controllers/reviews");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user");
 
 mongoose.connect("mongodb://localhost:27017/plunge")
   .then(() => {
@@ -31,10 +33,9 @@ app.use(logger);
 app.use(methodOverride("_method"));
 
 // EJS configuration
-app.engine('ejs', ejsMate);
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.locals.ejs = ejsHelpers; // adding some helpers to use in EJS files
 
 // Session configuration
 const sessionConfig = {
@@ -50,11 +51,26 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+// User Auth
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // Notifications
 app.use(middleWare.checkNotifications);
 
 app.get("/", (req, res) => {
   res.render("home");
+});
+
+app.get("/fakeUser", async (req, res) => {
+  const user = new User({ email: "example1@email.com", username: "root1" });
+  //const newUser = await user.save();
+  const newUser = await User.register(user, "chicken");
+  res.send(newUser);
 });
 
 // Controllers/routes

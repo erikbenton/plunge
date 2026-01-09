@@ -8,7 +8,7 @@
             <p>
                 <%= message %>
             </p>
-            <% if (ejs.isDefined(stack)) { %>
+            <% if (typeof stack !== "undefined") { %>
                 <hr>
                 <p class="mb-0">
                     <%= stack %>
