@@ -1,12 +1,10 @@
 const diveSpotRouter = require("express").Router();
 const DiveSpot = require("../models/diveSpot");
-const { setNotification } = require("../utils/notifications");
 const { validateDiveSpot } = require("../utils/validations");
 const { isLoggedIn } = require("../utils/middleWare");
 
 diveSpotRouter.get("/", async (req, res) => {
   const diveSpots = await DiveSpot.find({});
-  console.log("session id", req.sessionID);
   res.render("diveSpots/index", { diveSpots });
 });
 
@@ -17,7 +15,7 @@ diveSpotRouter.get("/new", isLoggedIn, (req, res) => {
 diveSpotRouter.post("/", isLoggedIn, validateDiveSpot, async (req, res, next) => {
   const diveSpot = new DiveSpot(req.body.diveSpot);
   await diveSpot.save();
-  setNotification(req.sessionID, "success", "Successfully made a new dive spot!");
+  req.setNotification("success", "Successfully made a new dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
@@ -28,7 +26,7 @@ diveSpotRouter.get("/:id", async (req, res) => {
     .populate("reviews");
 
   if (!diveSpot) {
-    setNotification(req.sessionID, "error", "Cannot find that dive spot =(");
+    req.setNotification("error", "Cannot find that dive spot =(");
     return res.redirect("/diveSpots");
   }
 
@@ -44,14 +42,14 @@ diveSpotRouter.get("/:id/edit", isLoggedIn, async (req, res) => {
 diveSpotRouter.put("/:id", isLoggedIn, validateDiveSpot, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot });
-  setNotification(req.sessionID, "success", "Successfully updated the dive spot!");
+  req.setNotification("success", "Successfully updated the dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
 diveSpotRouter.delete("/:id", isLoggedIn, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndDelete(id);
-  setNotification(req.sessionID, "success", "Successfully deleted dive spot!");
+  req.setNotification("success", "Successfully deleted dive spot!");
   res.redirect("/diveSpots");
 });
 

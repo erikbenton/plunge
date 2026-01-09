@@ -1,7 +1,6 @@
 const reviewRouter = require("express").Router({ mergeParams: true });
 const DiveSpot = require("../models/diveSpot");
 const Review = require("../models/review");
-const { setNotification } = require("../utils/notifications");
 const { validateReview } = require("../utils/validations");
 const { isLoggedIn } = require("../utils/middleWare");
 
@@ -12,7 +11,7 @@ reviewRouter.post("/", isLoggedIn, validateReview, async (req, res) => {
   diveSpot.reviews.push(review);
   await review.save();
   await diveSpot.save();
-  setNotification(req.sessionID, "success", "Created new review!");
+  req.setNotification("success", "Created new review!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
@@ -20,7 +19,7 @@ reviewRouter.delete("/:reviewId", isLoggedIn, async (req, res) => {
   const { id, reviewId } = req.params;
   await DiveSpot.findByIdAndUpdate(id, { $pull: { reviews: reviewId }});
   await Review.findByIdAndDelete(reviewId);
-  setNotification(req.sessionID, "success", "Successfully deleted review!");
+  req.setNotification("success", "Successfully deleted review!");
   res.redirect(`/diveSpots/${id}`);
 });
 

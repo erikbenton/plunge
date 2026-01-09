@@ -13,10 +13,13 @@ userRouter.post("/register", async (req, res) => {
     const user = new User({ username, email });
     const registeredUser = await User.register(user, password);
     console.log(registeredUser);
-    setNotification(req.sessionID, "success", "Welcome to Plunge!");
-    res.redirect("/diveSpots");
+    req.login(registeredUser, err => {
+      if (err) { return next(err); }
+      req.setNotification("success", "Welcome to Plunge!");
+      res.redirect("/diveSpots");
+    });
   } catch (e) {
-    setNotification(req.sessionID, "error", e.message);
+    req.setNotification("error", e.message);
     res.redirect("/register");
   }
 });
@@ -25,9 +28,17 @@ userRouter.get("/login", (req, res) => {
   res.render("users/login");
 });
 
-userRouter.post("/login", passport.authenticate('local', { failureMessage: true, failureRedirect: "/login"}), async (req, res) => {
-  setNotification(req.sessionID, "success", "Welcome back!");
+userRouter.post("/login", passport.authenticate('local', { failureMessage: true, failureRedirect: "/login" }), async (req, res) => {
+  req.setNotification("success", "Welcome back!");
   res.redirect("/diveSpots");
+});
+
+userRouter.get('/logout', (req, res, next) => {
+  req.logout(function (err) {
+    if (err) { return next(err); }
+    req.setNotification("success", "Goodbye!");
+    res.redirect("/diveSpots");
+  });
 });
 
 module.exports = userRouter;
