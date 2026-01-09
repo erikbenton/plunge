@@ -8,6 +8,7 @@ const session = require("express-session");
 const middleWare = require("./utils/middleWare");
 const diveSpotRouter = require("./controllers/diveSpots");
 const reviewRouter = require("./controllers/reviews");
+const userRouter = require("./controllers/users");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
@@ -66,14 +67,8 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/fakeUser", async (req, res) => {
-  const user = new User({ email: "example1@email.com", username: "root1" });
-  //const newUser = await user.save();
-  const newUser = await User.register(user, "chicken");
-  res.send(newUser);
-});
-
 // Controllers/routes
+app.use("/", userRouter);
 app.use("/diveSpots", diveSpotRouter);
 app.use("/diveSpots/:id/reviews", reviewRouter);
 
