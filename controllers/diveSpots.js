@@ -2,6 +2,7 @@ const diveSpotRouter = require("express").Router();
 const DiveSpot = require("../models/diveSpot");
 const { setNotification } = require("../utils/notifications");
 const { validateDiveSpot } = require("../utils/validations");
+const { isLoggedIn } = require("../utils/middleWare");
 
 diveSpotRouter.get("/", async (req, res) => {
   const diveSpots = await DiveSpot.find({});
@@ -9,14 +10,11 @@ diveSpotRouter.get("/", async (req, res) => {
   res.render("diveSpots/index", { diveSpots });
 });
 
-diveSpotRouter.get("/new", (req, res) => {
-  if (!req.isAuthenticated()) {
-
-  }
+diveSpotRouter.get("/new", isLoggedIn, (req, res) => {
   res.render("diveSpots/new");
 });
 
-diveSpotRouter.post("/", validateDiveSpot, async (req, res, next) => {
+diveSpotRouter.post("/", isLoggedIn, validateDiveSpot, async (req, res, next) => {
   const diveSpot = new DiveSpot(req.body.diveSpot);
   await diveSpot.save();
   setNotification(req.sessionID, "success", "Successfully made a new dive spot!");
@@ -37,20 +35,20 @@ diveSpotRouter.get("/:id", async (req, res) => {
   res.render("diveSpots/show", { diveSpot });
 });
 
-diveSpotRouter.get("/:id/edit", async (req, res) => {
+diveSpotRouter.get("/:id/edit", isLoggedIn, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findById(id);
   res.render("diveSpots/edit", { diveSpot });
 });
 
-diveSpotRouter.put("/:id", validateDiveSpot, async (req, res) => {
+diveSpotRouter.put("/:id", isLoggedIn, validateDiveSpot, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot });
   setNotification(req.sessionID, "success", "Successfully updated the dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
-diveSpotRouter.delete("/:id", async (req, res) => {
+diveSpotRouter.delete("/:id", isLoggedIn, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndDelete(id);
   setNotification(req.sessionID, "success", "Successfully deleted dive spot!");

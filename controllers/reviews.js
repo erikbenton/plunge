@@ -3,9 +3,10 @@ const DiveSpot = require("../models/diveSpot");
 const Review = require("../models/review");
 const { setNotification } = require("../utils/notifications");
 const { validateReview } = require("../utils/validations");
+const { isLoggedIn } = require("../utils/middleWare");
 
 
-reviewRouter.post("/", validateReview, async (req, res) => {
+reviewRouter.post("/", isLoggedIn, validateReview, async (req, res) => {
   const diveSpot = await DiveSpot.findById(req.params.id);
   const review = new Review(req.body.review);
   diveSpot.reviews.push(review);
@@ -15,7 +16,7 @@ reviewRouter.post("/", validateReview, async (req, res) => {
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
-reviewRouter.delete("/:reviewId", async (req, res) => {
+reviewRouter.delete("/:reviewId", isLoggedIn, async (req, res) => {
   const { id, reviewId } = req.params;
   await DiveSpot.findByIdAndUpdate(id, { $pull: { reviews: reviewId }});
   await Review.findByIdAndDelete(reviewId);
