@@ -5,17 +5,21 @@ const { validateDiveSpot } = require("../utils/validations");
 
 diveSpotRouter.get("/", async (req, res) => {
   const diveSpots = await DiveSpot.find({});
+  console.log("session id", req.sessionID);
   res.render("diveSpots/index", { diveSpots });
 });
 
 diveSpotRouter.get("/new", (req, res) => {
+  if (!req.isAuthenticated()) {
+
+  }
   res.render("diveSpots/new");
 });
 
 diveSpotRouter.post("/", validateDiveSpot, async (req, res, next) => {
   const diveSpot = new DiveSpot(req.body.diveSpot);
   await diveSpot.save();
-  setNotification("root", "success", "Successfully made a new dive spot!");
+  setNotification(req.sessionID, "success", "Successfully made a new dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
@@ -26,7 +30,7 @@ diveSpotRouter.get("/:id", async (req, res) => {
     .populate("reviews");
 
   if (!diveSpot) {
-    setNotification("root", "error", "Cannot find that dive spot =(");
+    setNotification(req.sessionID, "error", "Cannot find that dive spot =(");
     return res.redirect("/diveSpots");
   }
 
@@ -42,14 +46,14 @@ diveSpotRouter.get("/:id/edit", async (req, res) => {
 diveSpotRouter.put("/:id", validateDiveSpot, async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot });
-  setNotification("root", "success", "Successfully updated the dive spot!");
+  setNotification(req.sessionID, "success", "Successfully updated the dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
 diveSpotRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndDelete(id);
-  setNotification("root", "success", "Successfully deleted dive spot!");
+  setNotification(req.sessionID, "success", "Successfully deleted dive spot!");
   res.redirect("/diveSpots");
 });
 

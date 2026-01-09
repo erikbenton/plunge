@@ -11,7 +11,7 @@ reviewRouter.post("/", validateReview, async (req, res) => {
   diveSpot.reviews.push(review);
   await review.save();
   await diveSpot.save();
-  setNotification("root", "success", "Created new review!");
+  setNotification(req.sessionID, "success", "Created new review!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 });
 
@@ -19,7 +19,7 @@ reviewRouter.delete("/:reviewId", async (req, res) => {
   const { id, reviewId } = req.params;
   await DiveSpot.findByIdAndUpdate(id, { $pull: { reviews: reviewId }});
   await Review.findByIdAndDelete(reviewId);
-  setNotification("root", "success", "Successfully deleted review!");
+  setNotification(req.sessionID, "success", "Successfully deleted review!");
   res.redirect(`/diveSpots/${id}`);
 });
 

@@ -13,10 +13,10 @@ userRouter.post("/register", async (req, res) => {
     const user = new User({ username, email });
     const registeredUser = await User.register(user, password);
     console.log(registeredUser);
-    setNotification("root", "success", "Welcome to Plunge!");
+    setNotification(req.sessionID, "success", "Welcome to Plunge!");
     res.redirect("/diveSpots");
   } catch (e) {
-    setNotification("root", "error", e.message);
+    setNotification(req.sessionID, "error", e.message);
     res.redirect("/register");
   }
 });
@@ -26,7 +26,7 @@ userRouter.get("/login", (req, res) => {
 });
 
 userRouter.post("/login", passport.authenticate('local', { failureMessage: true, failureRedirect: "/login"}), async (req, res) => {
-  setNotification("root", "success", "Welcome back!");
+  setNotification(req.sessionID, "success", "Welcome back!");
   res.redirect("/diveSpots");
 });
 

@@ -2,7 +2,7 @@ const ExpressError = require("./ExpressError");
 const { getNotifications } = require("./notifications");
 
 const checkNotifications = (req, res, next) => {
-  const notifications = getNotifications("root");
+  const notifications = getNotifications(req.sessionID);
   res.locals.notifications = notifications;
   next();
 };
