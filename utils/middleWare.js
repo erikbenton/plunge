@@ -1,5 +1,7 @@
 const ExpressError = require("./ExpressError");
 const { getNotifications, setNotification } = require("./notifications");
+const DiveSpot = require("../models/diveSpot");
+const Review = require("../models/review");
 
 const checkNotifications = (req, res, next) => {
   req.setNotification = subscribeNotifications(req);
@@ -32,6 +34,28 @@ const storeReturnTo = (req, res, next) => {
   next();
 };
 
+const isDiveSpotAuthor = async (req, res, next) => {
+  const { id } = req.params;
+  const diveSpot = await DiveSpot.findById(id);
+  if (!diveSpot.author.equals(req.user._id)) {
+    req.setNotification("error", "You do not have permission to do that!");
+    return res.redirect(`/diveSpots/${id}`);
+  }
+
+  next();
+}
+
+const isReviewAuthor = async (req, res, next) => {
+  const { id: diveSpotId, reviewId } = req.params;
+  const review = await Review.findById(reviewId);
+  if (!review.author.equals(req.user._id)) {
+    req.setNotification("error", "You do not have permission to do that!");
+    return res.redirect(`/diveSpots/${diveSpotId}`);
+  }
+
+  next();
+};
+
 const unknownEndpoint = (req, res, next) => {
   next(new ExpressError("Page Not Found: " + req.path, 404));
 };
@@ -48,6 +72,8 @@ module.exports = {
   checkNotifications,
   storeReturnTo,
   isLoggedIn,
+  isDiveSpotAuthor,
+  isReviewAuthor,
   unknownEndpoint,
   errorHandler
 }
