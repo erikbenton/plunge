@@ -30,7 +30,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 // parsing form request body json
 app.use(express.urlencoded({ extended: true }));
-app.use(logger);
 app.use(methodOverride("_method"));
 
 // EJS configuration
@@ -68,6 +67,9 @@ app.use((req, res, next) => {
 
 // Notifications
 app.use(middleWare.checkNotifications);
+
+// Logging
+app.use(logger);
 
 app.get("/", (req, res) => {
   res.render("home");

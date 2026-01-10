@@ -6,6 +6,8 @@ const requestLogger = (request, response, next) => {
 
   if (request.body) { logger.info("Body", request.body); }
 
+  if (request.session) { logger.info(request.session); }
+
   logger.info("---");
 
   next();

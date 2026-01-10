@@ -1,7 +1,7 @@
 const userRouter = require("express").Router();
 const passport = require("passport");
 const User = require("../models/user");
-const { setNotification } = require("../utils/notifications");
+const { storeReturnTo } = require("../utils/middleWare");
 
 userRouter.get("/register", (req, res) => {
   res.render("users/register");
@@ -28,9 +28,11 @@ userRouter.get("/login", (req, res) => {
   res.render("users/login");
 });
 
-userRouter.post("/login", passport.authenticate('local', { failureMessage: true, failureRedirect: "/login" }), async (req, res) => {
+userRouter.post("/login", storeReturnTo, passport.authenticate('local', { failureMessage: true, failureRedirect: "/login" }), async (req, res) => {
   req.setNotification("success", "Welcome back!");
-  res.redirect("/diveSpots");
+  const redirectUrl = res.locals.returnTo || "/diveSpots";
+  delete req.session.returnTo;
+  res.redirect(redirectUrl);
 });
 
 userRouter.get('/logout', (req, res, next) => {
