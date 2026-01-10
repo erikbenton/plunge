@@ -12,12 +12,15 @@
               <li class="list-group-item text-secondary"><%= diveSpot.location %></li>
               <li class="list-group-item"><%= diveSpot.depth %> ft Avg Depth</li>
             </ul>
-            <div class="card-body">
-              <a class="card-link btn btn-info" href="/diveSpots/<%= diveSpot._id %>/edit">Edit</a>
-              <form class="d-inline" action="/diveSpots/<%= diveSpot._id %>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </div>
+            <% console.dir(currentUser) %>
+            <% if (currentUser && diveSpot.author.equals(currentUser._id)) { %>
+              <div class="card-body">
+                <a class="card-link btn btn-info" href="/diveSpots/<%= diveSpot._id %>/edit">Edit</a>
+                <form class="d-inline" action="/diveSpots/<%= diveSpot._id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
+              </div>
+            <% } %>
             <% if (typeof diveSpot.author !== "undefined") { %>
               <div class="card-footer">
                 <p class="card-text">Submitted by <%= diveSpot.author.username %></p>
