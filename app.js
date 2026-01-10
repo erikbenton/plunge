@@ -6,9 +6,9 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
 const middleWare = require("./utils/middleWare");
-const diveSpotRouter = require("./controllers/diveSpots");
-const reviewRouter = require("./controllers/reviews");
-const userRouter = require("./controllers/users");
+const diveSpotRouter = require("./routes/diveSpots");
+const reviewRouter = require("./routes/reviews");
+const userRouter = require("./routes/users");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
@@ -75,7 +75,7 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-// Controllers/routes
+// Routes
 app.use("/", userRouter);
 app.use("/diveSpots", diveSpotRouter);
 app.use("/diveSpots/:id/reviews", reviewRouter);

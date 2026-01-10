@@ -1,27 +1,23 @@
-const diveSpotRouter = require("express").Router();
 const DiveSpot = require("../models/diveSpot");
-const { validateDiveSpot } = require("../utils/validations");
-const { isLoggedIn, isDiveSpotAuthor } = require("../utils/middleWare");
-const { populate } = require("../models/review");
 
-diveSpotRouter.get("/", async (req, res) => {
+module.exports.index = async (req, res) => {
   const diveSpots = await DiveSpot.find({});
   res.render("diveSpots/index", { diveSpots });
-});
+};
 
-diveSpotRouter.get("/new", isLoggedIn, (req, res) => {
+module.exports.renderNewForm = (req, res) => {
   res.render("diveSpots/new");
-});
+};
 
-diveSpotRouter.post("/", isLoggedIn, validateDiveSpot, async (req, res, next) => {
+module.exports.create = async (req, res, next) => {
   const diveSpot = new DiveSpot(req.body.diveSpot);
   diveSpot.author = req.user._id
   await diveSpot.save();
   req.setNotification("success", "Successfully made a new dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
-});
+};
 
-diveSpotRouter.get("/:id", async (req, res) => {
+module.exports.getById = async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot
     .findById(id)
@@ -34,26 +30,24 @@ diveSpotRouter.get("/:id", async (req, res) => {
   }
 
   res.render("diveSpots/show", { diveSpot });
-});
+};
 
-diveSpotRouter.get("/:id/edit", isLoggedIn, isDiveSpotAuthor, async (req, res) => {
+module.exports.renderEditForm = async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findById(id);
   res.render("diveSpots/edit", { diveSpot });
-});
+};
 
-diveSpotRouter.put("/:id", isLoggedIn, isDiveSpotAuthor, validateDiveSpot, async (req, res) => {
+module.exports.edit = async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot })
   req.setNotification("success", "Successfully updated the dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
-});
+};
 
-diveSpotRouter.delete("/:id", isLoggedIn, isDiveSpotAuthor, async (req, res) => {
+module.exports.delete = async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot.findByIdAndDelete(id);
   req.setNotification("success", "Successfully deleted dive spot!");
   res.redirect("/diveSpots");
-});
-
-module.exports = diveSpotRouter;
+};

@@ -1,13 +1,10 @@
-const userRouter = require("express").Router();
-const passport = require("passport");
 const User = require("../models/user");
-const { storeReturnTo } = require("../utils/middleWare");
 
-userRouter.get("/register", (req, res) => {
+module.exports.renderRegisterForm = (req, res) => {
   res.render("users/register");
-});
+};
 
-userRouter.post("/register", async (req, res) => {
+module.exports.register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
     const user = new User({ username, email });
@@ -22,25 +19,23 @@ userRouter.post("/register", async (req, res) => {
     req.setNotification("error", e.message);
     res.redirect("/register");
   }
-});
+};
 
-userRouter.get("/login", (req, res) => {
+module.exports.renderLoginForm = (req, res) => {
   res.render("users/login");
-});
+};
 
-userRouter.post("/login", storeReturnTo, passport.authenticate('local', { failureMessage: true, failureRedirect: "/login" }), async (req, res) => {
+module.exports.login = async (req, res) => {
   req.setNotification("success", "Welcome back!");
   const redirectUrl = res.locals.returnTo || "/diveSpots";
   delete req.session.returnTo;
   res.redirect(redirectUrl);
-});
+};
 
-userRouter.get('/logout', (req, res, next) => {
+module.exports.logout = (req, res, next) => {
   req.logout(function (err) {
     if (err) { return next(err); }
     req.setNotification("success", "Goodbye!");
     res.redirect("/diveSpots");
   });
-});
-
-module.exports = userRouter;
+};
