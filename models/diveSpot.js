@@ -10,6 +10,10 @@ const DiveSpotSchema = new Schema({
   location: String,
   latitude: Number,
   longitude: Number,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   reviews: [
     {
       type: Schema.Types.ObjectId,

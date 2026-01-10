@@ -18,6 +18,11 @@
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             </div>
+            <% if (typeof diveSpot.author !== "undefined") { %>
+              <div class="card-footer">
+                <p class="card-text">Submitted by <%= diveSpot.author.username %></p>
+              </div>
+            <% } %>
         </div>
         <footer class="mb-3">
             <a href="/diveSpots">All dive spots</a>

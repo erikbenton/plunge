@@ -14,6 +14,7 @@ diveSpotRouter.get("/new", isLoggedIn, (req, res) => {
 
 diveSpotRouter.post("/", isLoggedIn, validateDiveSpot, async (req, res, next) => {
   const diveSpot = new DiveSpot(req.body.diveSpot);
+  diveSpot.author = req.user._id
   await diveSpot.save();
   req.setNotification("success", "Successfully made a new dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
@@ -23,7 +24,8 @@ diveSpotRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
   const diveSpot = await DiveSpot
     .findById(id)
-    .populate("reviews");
+    .populate("reviews")
+    .populate("author");
 
   if (!diveSpot) {
     req.setNotification("error", "Cannot find that dive spot =(");
