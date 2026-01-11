@@ -1,7 +1,12 @@
 [
   {
     "title": "Molokini Crater",
-    "image": "/img/dive1.jpg",
+    "images": [
+      {
+        "url": "/img/dive1.jpg",
+        "filename": "dive1"
+      }
+    ],
     "description": "Molokini Crater is a crescent-shaped volcanic caldera formed over 230,000 years ago. Sheltered from strong currents, it offers visibility that frequently exceeds 150 feet. Divers encounter healthy coral gardens, reef sharks, eagle rays, and seasonal humpback whale songs echoing through the water.",
     "depth": 148,
     "location": "Maui, Hawaii, USA",
@@ -10,7 +15,12 @@
   },
   {
     "title": "Cathedrals I",
-    "image": "/img/dive2.jpg",
+    "images": [
+      {
+        "url": "/img/dive2.jpg",
+        "filename": "dive2"
+      }
+    ],
     "description": "Cathedrals I features massive lava tubes sculpted by ancient volcanic flows, creating towering underwater chambers with cathedral-like ceilings. Sunlight pours through openings in the rock, illuminating schools of butterflyfish and angelfish. The calm conditions make it ideal for relaxed exploration and underwater photography.",
     "depth": 82,
     "location": "Lanai, Hawaii, USA",
@@ -19,7 +29,12 @@
   },
   {
     "title": "USS YO-257 Wreck",
-    "image": "/img/dive3.jpg",
+    "images": [
+      {
+        "url": "/img/dive3.jpg",
+        "filename": "dive3"
+      }
+    ],
     "description": "The USS YO-257 is a deliberately sunk Navy oiler resting upright on a sandy seabed. Over time it has transformed into a thriving artificial reef, attracting turtles, white-tip reef sharks, and schooling jacks. Penetration routes are limited, but the exterior offers dramatic photo opportunities.",
     "depth": 115,
     "location": "Honolulu, Oahu, Hawaii, USA",
@@ -28,17 +43,26 @@
   },
   {
     "title": "Turtle Canyon",
-    "image": "/img/dive4.jpg",
+    "images": [
+      {
+        "url": "/img/dive4.jpg",
+        "filename": "dive4"
+      }
+    ],
     "description": "Turtle Canyon is a gently sloping reef system renowned for its high concentration of Hawaiian green sea turtles. The site features finger reefs, sandy channels, and cleaning stations where turtles rest and interact. Calm currents and moderate depth make it a favorite for longer bottom times.",
     "depth": 72,
     "location": "Waikiki, Oahu, Hawaii, USA",
     "latitude": 21.2757,
     "longitude": -157.8422
   },
-
   {
     "title": "Great Blue Hole",
-    "image": "/img/dive5.jpg",
+    "images": [
+      {
+        "url": "/img/dive5.jpg",
+        "filename": "dive5"
+      }
+    ],
     "description": "The Great Blue Hole is a massive offshore limestone sinkhole that plunges hundreds of feet into darkness. Advanced divers descend along sheer walls adorned with stalactites formed during prehistoric ice ages. While marine life is limited at depth, the scale and geological history make this an iconic dive.",
     "depth": 407,
     "location": "Lighthouse Reef, Belize",
@@ -47,7 +71,12 @@
   },
   {
     "title": "Bloody Bay Wall",
-    "image": "/img/dive6.jpg",
+    "images": [
+      {
+        "url": "/img/dive6.jpg",
+        "filename": "dive6"
+      }
+    ],
     "description": "Bloody Bay Wall begins in shallow coral gardens before dropping vertically into deep blue water. Massive sponges, black coral, and gorgonians line the wall, while turtles and reef sharks cruise along the drop-off. The site offers spectacular visibility and dramatic sense of depth even on shallow profiles.",
     "depth": 130,
     "location": "Little Cayman, Cayman Islands",
@@ -56,7 +85,12 @@
   },
   {
     "title": "Devil’s Grotto",
-    "image": "/img/dive7.jpg",
+    "images": [
+      {
+        "url": "/img/dive7.jpg",
+        "filename": "dive7"
+      }
+    ],
     "description": "Devil’s Grotto is a maze of interconnected caverns and swim-throughs where sunlight streams through overhead fissures. Tarpon often hover motionless in the shadows, creating striking silhouettes. The site rewards slow, careful exploration and excellent buoyancy control to avoid disturbing the sandy floor.",
     "depth": 95,
     "location": "George Town, Grand Cayman",
@@ -65,17 +99,26 @@
   },
   {
     "title": "Dean’s Blue Hole Reef",
-    "image": "/img/dive8.jpg",
+    "images": [
+      {
+        "url": "/img/dive8.jpg",
+        "filename": "dive8"
+      }
+    ],
     "description": "Surrounding Dean’s Blue Hole is a shallow reef system that contrasts sharply with the abyss nearby. Coral heads, rays, and reef fish thrive in calm conditions, while the nearby sinkhole drops to record-breaking depths. The area is popular for relaxed reef dives and free-diving observation.",
     "depth": 60,
     "location": "Long Island, Bahamas",
     "latitude": 23.1036,
     "longitude": -75.0025
   },
-
   {
     "title": "SS Thistlegorm",
-    "image": "/img/dive9.jpg",
+    "images": [
+      {
+        "url": "/img/dive9.jpg",
+        "filename": "dive9"
+      }
+    ],
     "description": "The SS Thistlegorm is a legendary World War II wreck lying broken into sections on the seafloor. Its holds still contain motorcycles, trucks, rifles, and locomotives. Strong currents are common, but the combination of history, scale, and marine life makes it one of the world’s most famous dives.",
     "depth": 98,
     "location": "Strait of Gubal, Red Sea, Egypt",
@@ -84,7 +127,12 @@
   },
   {
     "title": "Shark Reef",
-    "image": "/img/dive10.jpg",
+    "images": [
+      {
+        "url": "/img/dive10.jpg",
+        "filename": "dive10"
+      }
+    ],
     "description": "Shark Reef is a current-swept site within Ras Mohammed National Park, known for dense coral coverage and frequent shark sightings. Large schools of snapper and barracuda swirl above the reef, while gray reef sharks patrol the edges. Drift diving techniques are commonly used here.",
     "depth": 105,
     "location": "Ras Mohammed National Park, Egypt",
@@ -93,17 +141,26 @@
   },
   {
     "title": "Elphinstone Reef",
-    "image": "/img/dive1.jpg",
+    "images": [
+      {
+        "url": "/img/dive1.jpg",
+        "filename": "dive1"
+      }
+    ],
     "description": "Elphinstone Reef is an isolated offshore reef famous for its steep walls and encounters with pelagic species. Oceanic whitetip sharks are often seen near the surface, while hammerheads may appear in deeper water. Conditions can be challenging, making it best suited for experienced divers.",
     "depth": 130,
     "location": "Marsa Alam, Egypt",
     "latitude": 25.3203,
     "longitude": 34.8517
   },
-
   {
     "title": "Medes Islands Marine Reserve",
-    "image": "/img/dive8.jpg",
+    "images": [
+      {
+        "url": "/img/dive8.jpg",
+        "filename": "dive8"
+      }
+    ],
     "description": "The Medes Islands Marine Reserve is one of the Mediterranean’s most successful conservation zones. Strict protections have allowed fish populations to flourish, resulting in large groupers, barracuda, and bream. Clear water and structured reefs make it ideal for both recreational divers and photographers.",
     "depth": 92,
     "location": "L’Estartit, Costa Brava, Spain",
@@ -112,7 +169,12 @@
   },
   {
     "title": "Blue Cave",
-    "image": "/img/dive6.jpg",
+    "images": [
+      {
+        "url": "/img/dive6.jpg",
+        "filename": "dive6"
+      }
+    ],
     "description": "The Blue Cave of Zakynthos is a cavern dive where sunlight refracts through limestone openings, filling the interior with intense blue hues. The site is relatively shallow and calm, allowing divers to focus on light patterns, rock formations, and small reef species tucked into crevices.",
     "depth": 60,
     "location": "Zakynthos Island, Greece",
@@ -121,17 +183,26 @@
   },
   {
     "title": "Secca della Colombara",
-    "image": "/img/dive3.jpg",
+    "images": [
+      {
+        "url": "/img/dive3.jpg",
+        "filename": "dive3"
+      }
+    ],
     "description": "Secca della Colombara is a volcanic seamount rising from deep water near Ustica Island. Covered in gorgonians and sponges, it attracts schools of barracuda and amberjack. Visibility is often excellent, and the site offers a classic Mediterranean mix of geology and marine life.",
     "depth": 115,
     "location": "Ustica Island, Sicily, Italy",
     "latitude": 38.7047,
     "longitude": 13.1872
   },
-
   {
     "title": "Barracuda Point",
-    "image": "/img/dive2.jpg",
+    "images": [
+      {
+        "url": "/img/dive2.jpg",
+        "filename": "dive2"
+      }
+    ],
     "description": "Barracuda Point is Sipadan’s most iconic dive, famous for intense currents and enormous schools of barracuda forming rotating vortexes. Divers often hook in to observe the spectacle as turtles, reef sharks, and bumphead parrotfish pass by. Timing and current awareness are critical here.",
     "depth": 131,
     "location": "Sipadan Island, Sabah, Malaysia",
@@ -140,7 +211,12 @@
   },
   {
     "title": "South Point",
-    "image": "/img/dive9.jpg",
+    "images": [
+      {
+        "url": "/img/dive9.jpg",
+        "filename": "dive9"
+      }
+    ],
     "description": "South Point offers steep walls and strong currents that attract large pelagic species. Reef sharks, turtles, and schooling fish are common, while deeper sections may reveal hammerheads. The site demands solid buoyancy control and situational awareness but rewards divers with dramatic encounters.",
     "depth": 105,
     "location": "Sipadan Island, Sabah, Malaysia",
@@ -149,7 +225,12 @@
   },
   {
     "title": "Richelieu Rock",
-    "image": "/img/dive4.jpg",
+    "images": [
+      {
+        "url": "/img/dive4.jpg",
+        "filename": "dive4"
+      }
+    ],
     "description": "Richelieu Rock is a submerged pinnacle rising from the Andaman Sea, blanketed in purple soft corals and anemones. Known for exceptional biodiversity, it hosts frogfish, seahorses, and occasional whale sharks. Surge and currents vary, making every dive here slightly different.",
     "depth": 115,
     "location": "Surin Islands, Andaman Sea, Thailand",
@@ -158,17 +239,26 @@
   },
   {
     "title": "Hin Daeng",
-    "image": "/img/dive10.jpg",
+    "images": [
+      {
+        "url": "/img/dive10.jpg",
+        "filename": "dive10"
+      }
+    ],
     "description": "Hin Daeng, meaning Red Rock, is a deep offshore pinnacle with vertical walls covered in red soft corals. Strong currents bring nutrient-rich water, attracting manta rays and whale sharks during the season. The exposed nature of the site makes it suitable for advanced divers only.",
     "depth": 131,
     "location": "Krabi Province, Thailand",
     "latitude": 7.3125,
     "longitude": 99.0706
   },
-
   {
     "title": "Manta Point",
-    "image": "/img/dive3.jpg",
+    "images": [
+      {
+        "url": "/img/dive3.jpg",
+        "filename": "dive3"
+      }
+    ],
     "description": "Manta Point is a renowned cleaning station where giant manta rays circle slowly as smaller fish remove parasites. Cold upwellings can reduce visibility, but they also bring nutrient-rich water that supports diverse marine life. Encounters are often prolonged and extremely close.",
     "depth": 72,
     "location": "Nusa Penida, Bali, Indonesia",
@@ -177,7 +267,12 @@
   },
   {
     "title": "USAT Liberty Wreck",
-    "image": "/img/dive5.jpg",
+    "images": [
+      {
+        "url": "/img/dive5.jpg",
+        "filename": "dive5"
+      }
+    ],
     "description": "The USAT Liberty is a World War II cargo ship torpedoed and later pushed ashore, now resting just off Tulamben’s coastline. The wreck is encrusted with coral and home to countless fish species. Its accessibility makes it suitable for day and night dives alike.",
     "depth": 98,
     "location": "Tulamben, Bali, Indonesia",
@@ -186,17 +281,26 @@
   },
   {
     "title": "Cape Kri",
-    "image": "/img/dive9.jpg",
+    "images": [
+      {
+        "url": "/img/dive9.jpg",
+        "filename": "dive9"
+      }
+    ],
     "description": "Cape Kri is globally recognized for holding records in marine biodiversity. During a single dive, hundreds of fish species can be observed. Strong currents fuel life along the reef slope, attracting sharks, rays, and dense schools of fish in a constantly moving spectacle.",
     "depth": 90,
     "location": "Raja Ampat, West Papua, Indonesia",
     "latitude": -0.5637,
     "longitude": 130.6894
   },
-
   {
     "title": "Yongala Wreck",
-    "image": "/img/dive3.jpg",
+    "images": [
+      {
+        "url": "/img/dive3.jpg",
+        "filename": "dive3"
+      }
+    ],
     "description": "The Yongala is one of the best-preserved historic shipwrecks in the world, resting upright on a sandy seabed. Massive groupers, bull sharks, rays, and sea snakes inhabit the structure. Strong currents are common, but the sheer abundance of life makes every dive unforgettable.",
     "depth": 110,
     "location": "Cape Bowling Green, Queensland, Australia",
@@ -205,17 +309,26 @@
   },
   {
     "title": "Cod Hole",
-    "image": "/img/dive2.jpg",
+    "images": [
+      {
+        "url": "/img/dive2.jpg",
+        "filename": "dive2"
+      }
+    ],
     "description": "Cod Hole is famous for its large, curious potato cod that approach divers without fear. The shallow reef structure and clear water allow for long dives focused on observation and photography. Despite its gentle nature, the site supports impressive biodiversity year-round.",
     "depth": 82,
     "location": "Ribbon Reefs, Great Barrier Reef, Australia",
     "latitude": -14.6769,
     "longitude": 145.4736
   },
-
   {
     "title": "Blue Corner",
-    "image": "/img/dive1.jpg",
+    "images": [
+      {
+        "url": "/img/dive1.jpg",
+        "filename": "dive1"
+      }
+    ],
     "description": "Blue Corner is a high-energy dive site where divers often use reef hooks to remain stationary in powerful currents. Reef sharks, eagle rays, and massive schools of jacks dominate the scene. When currents are strong, the site transforms into one of the most action-packed dives in Palau.",
     "depth": 100,
     "location": "Ngemelis Wall, Palau",
@@ -224,27 +337,40 @@
   },
   {
     "title": "Chuuk Lagoon Wreck Fleet",
-    "image": "/img/dive4.jpg",
+    "images": [
+      {
+        "url": "/img/dive4.jpg",
+        "filename": "dive4"
+      }
+    ],
     "description": "Chuuk Lagoon contains dozens of Japanese shipwrecks sunk during World War II. Many are covered in coral and house abundant marine life, while others still contain artifacts such as tanks, aircraft, and ammunition. The combination of history and biology makes this a unique destination.",
     "depth": 120,
     "location": "Chuuk Lagoon, Micronesia",
     "latitude": 7.4606,
     "longitude": 151.843
   },
-
   {
     "title": "Silfra Fissure",
-    "image": "/img/dive7.jpg",
+    "images": [
+      {
+        "url": "/img/dive7.jpg",
+        "filename": "dive7"
+      }
+    ],
     "description": "Silfra Fissure offers crystal-clear freshwater visibility exceeding 300 feet, allowing divers to glide between the North American and Eurasian tectonic plates. Cold temperatures require drysuits, but the surreal clarity, vivid colors, and geological significance create an unforgettable experience.",
     "depth": 60,
     "location": "Thingvellir National Park, Iceland",
     "latitude": 64.255,
     "longitude": -21.1236
   },
-
   {
     "title": "Darwin’s Arch",
-    "image": "/img/dive10.jpg",
+    "images": [
+      {
+        "url": "/img/dive10.jpg",
+        "filename": "dive10"
+      }
+    ],
     "description": "Darwin’s Arch is an advanced dive site known for strong currents and large pelagic encounters. Schools of hammerhead sharks are common, along with dolphins, whale sharks, and tuna. The site demands experience and fitness but offers some of the most thrilling diving on the planet.",
     "depth": 95,
     "location": "Darwin Island, Galapagos, Ecuador",

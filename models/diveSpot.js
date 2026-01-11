@@ -4,7 +4,12 @@ const Schema = mongoose.Schema;
 
 const DiveSpotSchema = new Schema({
   title: String,
-  image: String,
+  images: [
+    {
+      url: String,
+      filename: String
+    }
+  ],
   description: String,
   depth: Number,
   location: String,

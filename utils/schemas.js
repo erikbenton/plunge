@@ -4,7 +4,7 @@ module.exports.diveSpotSchema = Joi.object({
   diveSpot: Joi.object({
     title: Joi.string().required().min(3),
     depth: Joi.number().required().min(0),
-    image: Joi.string().required(),
+    //images: Joi.string().required(),
     location: Joi.string().required(),
     description: Joi.string().required(),
     longitude: Joi.number(),

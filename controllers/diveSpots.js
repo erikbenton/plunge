@@ -10,8 +10,10 @@ module.exports.renderNewForm = (req, res) => {
 };
 
 module.exports.create = async (req, res, next) => {
+  const images = req.files.map(f => ({ url: f.path, filename: f.filename }));
   const diveSpot = new DiveSpot(req.body.diveSpot);
   diveSpot.author = req.user._id
+  diveSpot.images = images;
   await diveSpot.save();
   req.setNotification("success", "Successfully made a new dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);

@@ -2,10 +2,13 @@ const diveSpotRouter = require("express").Router();
 const { validateDiveSpot } = require("../utils/validations");
 const { isLoggedIn, isDiveSpotAuthor } = require("../utils/middleWare");
 const diveSpots = require("../controllers/diveSpots");
+const multer = require("multer");
+const { storage } = require("../utils/cloudinary");
+const upload = multer({ storage });
 
 diveSpotRouter.route("/")
   .get(diveSpots.index)
-  .post(isLoggedIn, validateDiveSpot, diveSpots.create);
+  .post(isLoggedIn, validateDiveSpot, upload.array("diveSpot[images]"), diveSpots.create);
 
 diveSpotRouter.get("/new", isLoggedIn, diveSpots.renderNewForm);
 
