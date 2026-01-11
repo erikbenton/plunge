@@ -9,7 +9,8 @@ module.exports.diveSpotSchema = Joi.object({
     description: Joi.string().required(),
     longitude: Joi.number(),
     latitude: Joi.number()
-  }).required()
+  }).required(),
+  deleteImages: Joi.array()
 });
 
 module.exports.reviewSchema = Joi.object({

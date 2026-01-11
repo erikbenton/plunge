@@ -1,4 +1,5 @@
 const DiveSpot = require("../models/diveSpot");
+const { cloudinary } = require("../utils/cloudinary");
 
 module.exports.index = async (req, res) => {
   const diveSpots = await DiveSpot.find({});
@@ -42,7 +43,19 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.edit = async (req, res) => {
   const { id } = req.params;
-  const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot })
+  const images = req.files.map(f => ({ url: f.path, filename: f.filename }));
+  const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ... req.body.diveSpot });
+
+  if (req.body.deleteImages) {
+    const { deleteImages } = req.body;
+    for (let img of deleteImages) {
+      await cloudinary.uploader.destroy(img);
+    }
+    diveSpot.images = diveSpot.images.filter(img => !deleteImages.includes(img.filename));
+  }
+
+  diveSpot.images.push(...images);
+  await diveSpot.save();
   req.setNotification("success", "Successfully updated the dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 };

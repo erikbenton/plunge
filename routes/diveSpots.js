@@ -8,13 +8,13 @@ const upload = multer({ storage });
 
 diveSpotRouter.route("/")
   .get(diveSpots.index)
-  .post(isLoggedIn, validateDiveSpot, upload.array("diveSpot[images]"), diveSpots.create);
+  .post(isLoggedIn, upload.array("diveSpot[images]"), validateDiveSpot, diveSpots.create);
 
 diveSpotRouter.get("/new", isLoggedIn, diveSpots.renderNewForm);
 
 diveSpotRouter.route("/:id")
   .get(diveSpots.getById)
-  .put(isLoggedIn, isDiveSpotAuthor, validateDiveSpot, diveSpots.edit)
+  .put(isLoggedIn, isDiveSpotAuthor, upload.array("diveSpot[images]"), validateDiveSpot, diveSpots.edit)
   .delete(isLoggedIn, isDiveSpotAuthor, diveSpots.delete);
 
 diveSpotRouter.get("/:id/edit", isLoggedIn, isDiveSpotAuthor, diveSpots.renderEditForm);
