@@ -1,5 +1,8 @@
 <%- layout("layouts/boilerplate") %>
 
+<!-- Cluster map -->
+<div id="map" style="width: 100%; height: 500px"></div>
+
 <h1>Dive Spots</h1>
 <div>
     <a href="/diveSpots/new">Add dive spot</a>
@@ -24,3 +27,19 @@
         </div>
     </div>
 <% } %>
+
+<%- "<script>" %>
+const maptilerApiKey = "<%- process.env.MAPTILER_API_KEY %>";
+const diveSpots = {
+  type: "FeatureCollection",
+  features: <%- JSON.stringify(
+    diveSpots.map(diveSpot => ({
+      type: "Feature",
+      geometry: diveSpot.geometry,
+      properties: { popUpMarkup: diveSpot?.properties?.popUpMarkup }
+    }))
+  ) %>
+};
+<%- "</script>" %>
+
+<script src="/js/clusterMap.js"></script>
