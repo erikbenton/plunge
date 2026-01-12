@@ -1,0 +1,239 @@
+[
+  {
+    "title": "Molokini Crater",
+    "description": "Molokini Crater is a partially submerged volcanic caldera off Maui, famous for its crystal-clear visibility that often exceeds 150 feet. The sheltered interior hosts vibrant coral gardens, reef sharks, eagle rays, and schools of tropical fish. During winter months, humpback whale songs can often be heard underwater, creating a surreal experience for divers.",
+    "depth": 148,
+    "location": "Maui, Hawaii, USA",
+    "latitude": 20.6319,
+    "longitude": -156.4951
+  },
+  {
+    "title": "Cathedrals I",
+    "description": "Cathedrals I features enormous lava tubes carved by ancient volcanic activity, forming massive underwater chambers that resemble cathedral ceilings. Sunlight pours through openings in the rock, creating dramatic beams of light. Schools of butterflyfish, angelfish, and turtles are common, making this one of Lanai’s most iconic dives.",
+    "depth": 82,
+    "location": "Lanai, Hawaii, USA",
+    "latitude": 20.7862,
+    "longitude": -156.9517
+  },
+  {
+    "title": "Cathedrals II",
+    "description": "Cathedrals II offers a similar lava-tube experience to its sister site, but with larger swim-throughs and more dramatic lighting. The cavern ceilings are covered in coral growth, while reef fish swirl through shafts of sunlight. This site is popular with photographers seeking wide-angle compositions and unique geological formations.",
+    "depth": 95,
+    "location": "Lanai, Hawaii, USA",
+    "latitude": 20.7874,
+    "longitude": -156.9529
+  },
+  {
+    "title": "USS YO-257 Wreck",
+    "description": "The USS YO-257 is a former Navy oiler deliberately sunk to form an artificial reef. Now fully encrusted with coral, the wreck attracts turtles, reef sharks, and large schools of fish. The structure rests upright on a sandy seabed, creating dramatic swim-arounds and photo opportunities for experienced divers.",
+    "depth": 115,
+    "location": "Oahu, Hawaii, USA",
+    "latitude": 21.2565,
+    "longitude": -157.8226
+  },
+  {
+    "title": "Sea Tiger Wreck",
+    "description": "The Sea Tiger is a former cargo ship intentionally sunk to create a dive site off Waikiki. The wreck sits upright and is home to schooling jacks, eagle rays, and occasional reef sharks. Penetration is possible for trained divers, while the exterior provides stunning wide-angle photography opportunities.",
+    "depth": 123,
+    "location": "Oahu, Hawaii, USA",
+    "latitude": 21.2783,
+    "longitude": -157.8458
+  },
+  {
+    "title": "Turtle Canyon",
+    "description": "Turtle Canyon is a gently sloping reef system known for its high concentration of Hawaiian green sea turtles. Cleaning stations allow close observation of turtle behavior, while sandy channels host stingrays and garden eels. Calm conditions make this a favorite site for extended bottom times and relaxed exploration.",
+    "depth": 72,
+    "location": "Waikiki, Oahu, Hawaii, USA",
+    "latitude": 21.2757,
+    "longitude": -157.8422
+  },
+  {
+    "title": "Electric Beach",
+    "description": "Electric Beach gets its name from warm water outflow from a nearby power plant, attracting tropical fish year-round. Strong currents bring in dolphins, turtles, and reef sharks. The reef structure begins shallow and gradually slopes deeper, offering diverse habitats and exciting drift diving opportunities.",
+    "depth": 90,
+    "location": "Kahe Point, Oahu, Hawaii, USA",
+    "latitude": 21.3573,
+    "longitude": -158.1311
+  },
+  {
+    "title": "Makaha Caverns",
+    "description": "Makaha Caverns is a series of lava tubes and arches along Oahu’s west coast. Divers can swim through cavern entrances while sunlight illuminates the interior. White-tip reef sharks often rest inside the caverns during the day, providing safe but thrilling close encounters.",
+    "depth": 85,
+    "location": "Makaha, Oahu, Hawaii, USA",
+    "latitude": 21.4684,
+    "longitude": -158.2281
+  },
+  {
+    "title": "Shark’s Cove",
+    "description": "Shark’s Cove is a popular North Shore dive site known for lava formations, tide pools, and underwater arches. In summer months, calm seas allow exploration of caverns and tunnels filled with reef fish. The site is excellent for both snorkeling and scuba, with diverse marine habitats.",
+    "depth": 45,
+    "location": "Pupukea, Oahu, Hawaii, USA",
+    "latitude": 21.6489,
+    "longitude": -158.0636
+  },
+  {
+    "title": "Kewalo Pipe",
+    "description": "Kewalo Pipe features an underwater pipeline that has become a thriving artificial reef. Frogfish, octopus, and leaf scorpionfish are often spotted along the structure. The surrounding sand flats host rays and garden eels, making it a favorite macro photography site.",
+    "depth": 70,
+    "location": "Honolulu, Oahu, Hawaii, USA",
+    "latitude": 21.2882,
+    "longitude": -157.8641
+  },
+
+  {
+    "title": "Mala Wharf",
+    "description": "Mala Wharf is a collapsed pier that now forms an intricate artificial reef system. Massive concrete pillars are covered in coral and sponges, providing shelter for turtles, frogfish, and large schools of fish. Sunlight streams between the beams, creating dramatic lighting effects for photography.",
+    "depth": 45,
+    "location": "Lahaina, Maui, Hawaii, USA",
+    "latitude": 20.8783,
+    "longitude": -156.6809
+  },
+  {
+    "title": "Lanai Lookout",
+    "description": "Lanai Lookout features lava ridges, coral bommies, and deep drop-offs facing the island of Lanai. Strong currents attract pelagic species including manta rays and sharks. The site offers impressive topography and excellent visibility, making it a favorite among advanced divers.",
+    "depth": 100,
+    "location": "Maui, Hawaii, USA",
+    "latitude": 20.7623,
+    "longitude": -156.6171
+  },
+  {
+    "title": "Five Graves",
+    "description": "Five Graves is a shallow lava formation with multiple swim-throughs and arches. Turtles frequently rest in the sandy patches, while reef fish swarm the coral heads. This site is ideal for relaxed dives and underwater photography, with gentle currents and excellent light penetration.",
+    "depth": 55,
+    "location": "Makena, Maui, Hawaii, USA",
+    "latitude": 20.6334,
+    "longitude": -156.4418
+  },
+  {
+    "title": "Ulua Beach",
+    "description": "Ulua Beach offers a long reef system extending from shore with coral gardens and lava fingers. The site is known for eagle rays, turtles, and schooling fish. Easy entry and gradual depth make it suitable for all skill levels, while night dives reveal octopus and hunting eels.",
+    "depth": 65,
+    "location": "Wailea, Maui, Hawaii, USA",
+    "latitude": 20.6894,
+    "longitude": -156.4419
+  },
+  {
+    "title": "Ahihi Kinau Reserve",
+    "description": "Ahihi Kinau is a protected marine reserve with pristine coral reefs and minimal human impact. The lava formations create natural channels and arches, while reef fish thrive in abundance. Visibility is excellent, making it ideal for observing undisturbed marine ecosystems.",
+    "depth": 70,
+    "location": "South Maui, Hawaii, USA",
+    "latitude": 20.6124,
+    "longitude": -156.4325
+  },
+
+  {
+    "title": "Manta Ray Night Dive",
+    "description": "This legendary night dive features powerful lights that attract plankton, drawing giant manta rays into close proximity. Divers kneel on the seabed as mantas perform graceful barrel rolls overhead. The experience is considered one of the most unique night dives in the world.",
+    "depth": 40,
+    "location": "Kona, Big Island, Hawaii, USA",
+    "latitude": 19.6402,
+    "longitude": -156.0278
+  },
+  {
+    "title": "Two Step",
+    "description": "Two Step is a popular shore dive with easy entry and excellent coral coverage. Spinner dolphins are sometimes spotted offshore, while turtles and reef fish populate the shallows. The site offers long bottom times and excellent visibility, making it ideal for relaxed reef exploration.",
+    "depth": 60,
+    "location": "Honaunau, Big Island, Hawaii, USA",
+    "latitude": 19.4218,
+    "longitude": -155.9091
+  },
+  {
+    "title": "Crescent Beach",
+    "description": "Crescent Beach offers a mix of coral reefs and lava rock formations. The shallow waters are perfect for macro life, while deeper sections host larger fish. Calm conditions and gradual slopes make it accessible for beginner divers and underwater photographers.",
+    "depth": 50,
+    "location": "Kona, Big Island, Hawaii, USA",
+    "latitude": 19.6042,
+    "longitude": -155.9765
+  },
+  {
+    "title": "Puako Reef",
+    "description": "Puako Reef stretches along the coastline with healthy coral heads and abundant fish life. Turtles, eagle rays, and reef sharks are common sightings. The reef structure allows divers to explore multiple depth levels, providing varied terrain and long dive profiles.",
+    "depth": 75,
+    "location": "Kohala Coast, Big Island, Hawaii, USA",
+    "latitude": 19.9602,
+    "longitude": -155.8593
+  },
+  {
+    "title": "Golden Arches",
+    "description": "Golden Arches features massive lava arches and overhangs covered in coral growth. Schools of fish gather beneath the arches, while turtles rest in sheltered areas. Light filtering through the formations creates dramatic visual effects throughout the dive.",
+    "depth": 85,
+    "location": "Kona, Big Island, Hawaii, USA",
+    "latitude": 19.6127,
+    "longitude": -155.9784
+  },
+
+  {
+    "title": "Kealakekua Bay",
+    "description": "Kealakekua Bay is a marine sanctuary with some of the clearest water in Hawaii. Coral gardens extend from shore, hosting schools of tropical fish and spinner dolphins. Historical significance adds to the experience, as this is where Captain Cook first landed.",
+    "depth": 80,
+    "location": "Big Island, Hawaii, USA",
+    "latitude": 19.4789,
+    "longitude": -155.9216
+  },
+  {
+    "title": "Garden Eel Cove",
+    "description": "Garden Eel Cove is named for its large population of garden eels waving from sandy patches. The surrounding reef attracts rays, turtles, and reef sharks. The gentle slope and sandy channels make it perfect for slow exploration and macro photography.",
+    "depth": 70,
+    "location": "Kona, Big Island, Hawaii, USA",
+    "latitude": 19.6433,
+    "longitude": -156.0271
+  },
+  {
+    "title": "Suck ‘Em Up Cave",
+    "description": "Suck ‘Em Up Cave is an advanced lava tube dive with strong surge and overhead environments. Inside, large chambers reveal coral-covered walls and resting sharks. The dynamic conditions create an adrenaline-filled experience for skilled divers seeking dramatic terrain.",
+    "depth": 90,
+    "location": "Kona, Big Island, Hawaii, USA",
+    "latitude": 19.5903,
+    "longitude": -155.9675
+  },
+
+  {
+    "title": "Sheraton Caverns",
+    "description": "Sheraton Caverns is a lava tube system known for large cavern openings and resident white-tip reef sharks. Divers can swim through arches and observe sharks resting inside. Sunlight beams through openings, creating dramatic shadows and excellent photo opportunities.",
+    "depth": 65,
+    "location": "Poipu, Kauai, Hawaii, USA",
+    "latitude": 21.8733,
+    "longitude": -159.4522
+  },
+  {
+    "title": "Tunnels Beach",
+    "description": "Tunnels Beach features underwater lava tunnels and arches surrounded by vibrant coral gardens. The site hosts turtles, reef sharks, and schooling fish. Calm summer conditions make it accessible, while winter surf limits access to experienced divers only.",
+    "depth": 55,
+    "location": "North Shore, Kauai, Hawaii, USA",
+    "latitude": 22.2237,
+    "longitude": -159.5653
+  },
+  {
+    "title": "Koloa Landing",
+    "description": "Koloa Landing is one of Kauai’s easiest shore dives, featuring a sloping reef with artificial structures. Frogfish, octopus, and turtles are frequently spotted. The site is excellent for night diving and macro photography due to its diverse critter population.",
+    "depth": 60,
+    "location": "Poipu, Kauai, Hawaii, USA",
+    "latitude": 21.8748,
+    "longitude": -159.4546
+  },
+
+  {
+    "title": "First Cathedral",
+    "description": "First Cathedral is Lanai’s most famous dive site, featuring massive lava caverns illuminated by natural light. The dramatic rock formations create an awe-inspiring environment, while reef sharks, turtles, and schooling fish inhabit the area.",
+    "depth": 80,
+    "location": "Lanai, Hawaii, USA",
+    "latitude": 20.7862,
+    "longitude": -156.9517
+  },
+  {
+    "title": "Second Cathedral",
+    "description": "Second Cathedral offers a darker, more enclosed cavern experience compared to First Cathedral. Light beams penetrate through cracks in the ceiling, illuminating coral walls. The site is perfect for photographers seeking dramatic lighting and unique compositions.",
+    "depth": 95,
+    "location": "Lanai, Hawaii, USA",
+    "latitude": 20.7854,
+    "longitude": -156.9522
+  },
+  {
+    "title": "Puu Pehe (Sweetheart Rock)",
+    "description": "Puu Pehe is a dramatic offshore rock formation surrounded by coral reefs. The area hosts turtles, eagle rays, and large schools of fish. Steep drop-offs provide stunning topography, while calm conditions allow divers to explore both shallow and deeper sections.",
+    "depth": 90,
+    "location": "Lanai, Hawaii, USA",
+    "latitude": 20.7405,
+    "longitude": -156.9044
+  }
+]
