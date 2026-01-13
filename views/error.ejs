@@ -8,11 +8,13 @@
             <p>
                 <%= message %>
             </p>
-            <% if (typeof stack !== "undefined") { %>
-                <hr>
-                <p class="mb-0">
-                    <%= stack %>
-                </p>
+            <% if (process.env.NODE_ENV !== "production") { %>
+                <% if (typeof stack !== "undefined") { %>
+                    <hr>
+                    <p class="mb-0">
+                        <%= stack %>
+                    </p>
+                <% } %>
             <% } %>
         </div>
     </div>

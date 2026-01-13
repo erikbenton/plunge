@@ -17,6 +17,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 const sanitizeV5 = require("./utils/mongoSanitizeV5");
+const sessionConfig = require("./utils/sessionConfig");
 
 mongoose.connect("mongodb://localhost:27017/plunge")
   .then(() => {
@@ -48,17 +49,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Session configuration
-const sessionConfig = {
-  secret: "thisshouldbeabettersecret",
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    httpOnly: true,
-    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-  }
-};
-
 app.use(session(sessionConfig));
 
 // User Auth
