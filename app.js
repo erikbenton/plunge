@@ -16,6 +16,7 @@ const userRouter = require("./routes/users");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
+const sanitizeV5 = require("./utils/mongoSanitizeV5");
 
 mongoose.connect("mongodb://localhost:27017/plunge")
   .then(() => {
@@ -27,8 +28,13 @@ mongoose.connect("mongodb://localhost:27017/plunge")
 
 const app = express();
 
+app.set("query parser", "extended");
+
 // Static files for hosting
 app.use(express.static(path.join(__dirname, "public")));
+
+// Sanitize requests
+app.use(sanitizeV5({ replaceWith: "_" }));
 
 // parsing API JSON data
 app.use(express.json());
