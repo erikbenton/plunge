@@ -18,6 +18,8 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 const sanitizeV5 = require("./utils/mongoSanitizeV5");
 const sessionConfig = require("./utils/sessionConfig");
+const helmet = require("helmet");
+const cspConfig = require('./utils/contentSecurityPolicyConfig');
 
 mongoose.connect("mongodb://localhost:27017/plunge")
   .then(() => {
@@ -50,6 +52,10 @@ app.set("views", path.join(__dirname, "views"));
 
 // Session configuration
 app.use(session(sessionConfig));
+
+// CSP and in-depth security
+app.use(helmet());
+app.use(helmet.contentSecurityPolicy(cspConfig));
 
 // User Auth
 app.use(passport.initialize());
