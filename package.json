@@ -15,6 +15,7 @@
   "dependencies": {
     "@maptiler/client": "^2.5.0",
     "cloudinary": "^1.41.3",
+    "connect-mongo": "^6.0.0",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",

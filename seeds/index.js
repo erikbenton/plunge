@@ -5,8 +5,11 @@ const Review = require("../models/review");
 const User = require("../models/user");
 const divesJson = require("./diveSpots.json");
 const hawaiiJson = require("./hawaiiSites.json");
-const mongoUrl = process.env.MONGODB_URI
-//const localDb = "mongodb://localhost:27017/plunge";
+const prodDb = process.env.MONGODB_URI;
+const localDb = "mongodb://localhost:27017/plunge";
+const mongoUrl = process.env.NODE_ENV === "production"
+  ? prodDb
+  : localDb;
 
 mongoose.connect(mongoUrl)
   .then(async () => {

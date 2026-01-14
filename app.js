@@ -20,8 +20,12 @@ const sanitizeV5 = require("./utils/mongoSanitizeV5");
 const sessionConfig = require("./utils/sessionConfig");
 const helmet = require("helmet");
 const cspConfig = require('./utils/contentSecurityPolicyConfig');
-const mongoUrl = process.env.MONGODB_URI;
-//const localDb = "mongodb://localhost:27017/plunge";
+const { MongoStore } = require('connect-mongo');
+const prodDb = process.env.MONGODB_URI;
+const localDb = "mongodb://localhost:27017/plunge";
+const mongoUrl = process.env.NODE_ENV === "production"
+  ? prodDb
+  : localDb;
 
 mongoose.connect(mongoUrl)
   .then(() => {
@@ -52,8 +56,20 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+const store = MongoStore.create({
+  mongoUrl: mongoUrl,
+  touchAfter: 24 * 60 * 60, // 1 day
+  crypto: {
+    secret: process.env.MONGO_STORE_SECRET
+  }
+});
+
+store.on("error", function(err) {
+  console.log("session store error", err);
+});
+
 // Session configuration
-app.use(session(sessionConfig));
+app.use(session(sessionConfig(store)));
 
 // CSP and in-depth security
 app.use(helmet());
