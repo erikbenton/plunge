@@ -20,8 +20,10 @@ const sanitizeV5 = require("./utils/mongoSanitizeV5");
 const sessionConfig = require("./utils/sessionConfig");
 const helmet = require("helmet");
 const cspConfig = require('./utils/contentSecurityPolicyConfig');
+const mongoUrl = process.env.MONGODB_URI;
+//const localDb = "mongodb://localhost:27017/plunge";
 
-mongoose.connect("mongodb://localhost:27017/plunge")
+mongoose.connect(mongoUrl)
   .then(() => {
     console.log("Database connected.");
   })
