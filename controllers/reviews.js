@@ -8,7 +8,7 @@ module.exports.create = async (req, res) => {
   review.author = req.user._id;
   await review.save();
   await diveSpot.save();
-  req.setNotification("success", "Created new review!");
+  req.setNotification("success", "Successfully created new review!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 };
 

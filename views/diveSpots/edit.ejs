@@ -3,7 +3,7 @@
 <div class="row">
     <h1 class="text-center">Edit Dive Spot</h1>
     <div class="col-md-8 col-xl-6 offset-md-2 offset-xl-3">
-        <form action="/diveSpots/<%= diveSpot._id %>?_method=PUT" method="POST" class="validated-form" enctype="multipart/form-data" novalidate>
+        <form action="/diveSpots/<%= diveSpot._id %>?_method=PUT" method="POST" class="validated-form" enctype="multipart/form-data" aria-label="edit dive spot form" novalidate>
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="diveSpot[title]" value="<%= diveSpot.title %>" required>

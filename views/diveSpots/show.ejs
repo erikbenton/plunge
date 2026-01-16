@@ -25,12 +25,12 @@
             </div>
 
             <div class="card-body">
-              <h5 class="card-title"><%= diveSpot.title %></h5>
-              <p class="card-text"><%= diveSpot.description %></p>
+              <h5 id="title" class="card-title"><%= diveSpot.title %></h5>
+              <p id="description" class="card-text"><%= diveSpot.description %></p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item text-secondary"><%= diveSpot.location %></li>
-              <li class="list-group-item"><%= diveSpot.depth %> ft Avg Depth</li>
+              <li id="location" class="list-group-item text-secondary"><%= diveSpot.location %></li>
+              <li id="avg-depth" class="list-group-item"><%= diveSpot.depth %> ft Avg Depth</li>
             </ul>
             <% if (currentUser && diveSpot.author.equals(currentUser._id)) { %>
               <div class="card-body">
@@ -42,7 +42,7 @@
             <% } %>
             <% if (typeof diveSpot.author !== "undefined") { %>
               <div class="card-footer">
-                <p class="card-text">Submitted by <%= diveSpot.author.username %></p>
+                <p class="card-text">Submitted by <span id="author"><%= diveSpot.author.username %></span></p>
               </div>
             <% } %>
         </div>
@@ -75,7 +75,7 @@
         </form>
       <% } %>
       <% for (let review of diveSpot.reviews) { %>
-        <div class="card mb-3">
+        <div class="card dive-spot-review-card mb-3">
           <div class="card-body">
             <h5 class="card-title"><%= review.author.username %></h5>
             <p class="starability-result" data-rating="<%= review.rating %>">
