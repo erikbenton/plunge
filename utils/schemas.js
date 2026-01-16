@@ -25,13 +25,11 @@ const Joi = BaseJoi.extend(extension);
 
 module.exports.diveSpotSchema = Joi.object({
   diveSpot: Joi.object({
-    title: Joi.string().required().min(3).escapeHTML(),
-    depth: Joi.number().required().min(0),
+    title: Joi.string().required().min(3).max(200).escapeHTML(),
+    depth: Joi.number().required().min(0).max(99999),
     //images: Joi.string().required(),
     location: Joi.string().required().escapeHTML(),
-    description: Joi.string().required().escapeHTML(),
-    longitude: Joi.number(),
-    latitude: Joi.number()
+    description: Joi.string().required().min(0).max(5000).escapeHTML()
   }).required(),
   deleteImages: Joi.array()
 });
@@ -39,6 +37,6 @@ module.exports.diveSpotSchema = Joi.object({
 module.exports.reviewSchema = Joi.object({
   review: Joi.object({
     rating: Joi.number().required().min(1).max(5),
-    body: Joi.string().required().escapeHTML()
+    body: Joi.string().required().max(3000).escapeHTML()
   }).required()
 });

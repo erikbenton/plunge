@@ -4,7 +4,7 @@ const { isLoggedIn, isDiveSpotAuthor } = require("../utils/middleWare");
 const diveSpots = require("../controllers/diveSpots");
 const multer = require("multer");
 const { storage } = require("../utils/cloudinary");
-const upload = multer({ storage });
+const upload = multer({ storage, limits: { files: 5 } });
 
 diveSpotRouter.route("/")
   .get(diveSpots.index)
