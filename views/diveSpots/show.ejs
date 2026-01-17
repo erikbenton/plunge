@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/css/starability-basic.min.css">
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <div class="card mb-3">
             <div id="diveSpotCarousel" class="carousel slide">
               <div class="carousel-inner">
@@ -46,12 +46,11 @@
               </div>
             <% } %>
         </div>
-        <footer class="mb-3">
-            <a href="/diveSpots">All dive spots</a>
-        </footer>
     </div>
-    <div class="col-6">
-      <div id="map"></div>
+    <div class="col-12 col-md-6">
+
+      <div id="map" class="mb-3"></div>
+
       <% if (currentUser) { %>
         <h2>Leave a Review</h2>
         <form action="/diveSpots/<%= diveSpot._id %>/reviews" method="POST" class="mb-3 validated-form" novalidate>
