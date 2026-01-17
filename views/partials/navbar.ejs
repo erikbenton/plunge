@@ -19,20 +19,24 @@
                     </li>
                 </ul>
             </div>
-            <div class="ms-auto">
-                <ul class="navbar-nav">
-                    <% if (!currentUser) { %> 
+            <div class="ms-auto d-flex">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </form>
+                <ul class="ms-auto navbar-nav">
+                    <% if (!currentUser) { %>
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/register">Register</a>
                         </li>
-                    <% } else { %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout, <%= currentUser.username %></a>
-                        </li>
-                    <% } %>
+                        <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout, <%= currentUser.username %></a>
+                            </li>
+                            <% } %>
                 </ul>
             </div>
         </div>
