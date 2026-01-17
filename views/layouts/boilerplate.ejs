@@ -20,7 +20,9 @@
     <%- include("../partials/navbar") %>
 
     <main class="container mt-3">
-        <%- include("../partials/alert", notifications) %>
+        <% if (typeof notifications !== "undefined") { %>
+            <%- include("../partials/alert", notifications) %>
+        <% } %>
 
         <%- body %>
     </main>
