@@ -6,27 +6,18 @@ maptilerClient.config.apiKey = process.env.MAPTILER_API_KEY;
 
 module.exports.index = async (req, res) => {
   const { searchTerm } = req.query;
-  const foundDiveSpots = [];
+
+  let diveSpots = await DiveSpot.find({});
+
   if (searchTerm) {
-    // search by both title and location
-    const foundTitles = await DiveSpot
-      .find({ title: new RegExp(searchTerm, "i") })
-      .exec();
-
-    const foundLocations = await DiveSpot
-      .find({ location: new RegExp(searchTerm, "i") })
-      .exec();
-
-    // merge the found titles with the locations (no duplicates)
-    const titles = foundTitles.map(t => t.title);
-    const noDupes = foundLocations.filter(loc => !titles.includes(loc.title));
-    foundDiveSpots.push(...foundTitles);
-    foundDiveSpots.push(...noDupes);
+    // search both the title or location contains term
+    const search = new RegExp(searchTerm, "i");
+    diveSpots = diveSpots
+      .filter(ds => (
+        ds.title.match(search)
+        || ds.location.match(search)
+      ));
   }
-
-  const diveSpots = searchTerm
-    ? foundDiveSpots
-    : await DiveSpot.find({});
 
   res.render("diveSpots/index", { diveSpots });
 };
