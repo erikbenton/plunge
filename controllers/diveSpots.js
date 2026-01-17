@@ -5,7 +5,29 @@ const maptilerClient = require("@maptiler/client");
 maptilerClient.config.apiKey = process.env.MAPTILER_API_KEY;
 
 module.exports.index = async (req, res) => {
-  const diveSpots = await DiveSpot.find({});
+  const { searchTerm } = req.query;
+  const foundDiveSpots = [];
+  if (searchTerm) {
+    // search by both title and location
+    const foundTitles = await DiveSpot
+      .find({ title: new RegExp(searchTerm, "i") })
+      .exec();
+
+    const foundLocations = await DiveSpot
+      .find({ location: new RegExp(searchTerm, "i") })
+      .exec();
+
+    // merge the found titles with the locations (no duplicates)
+    const titles = foundTitles.map(t => t.title);
+    const noDupes = foundLocations.filter(loc => !titles.includes(loc.title));
+    foundDiveSpots.push(...foundTitles);
+    foundDiveSpots.push(...noDupes);
+  }
+
+  const diveSpots = searchTerm
+    ? foundDiveSpots
+    : await DiveSpot.find({});
+
   res.render("diveSpots/index", { diveSpots });
 };
 
