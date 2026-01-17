@@ -12,11 +12,7 @@ module.exports.index = async (req, res) => {
   if (searchTerm) {
     // search both the title or location contains term
     const search = new RegExp(searchTerm, "i");
-    diveSpots = diveSpots
-      .filter(ds => (
-        ds.title.match(search)
-        || ds.location.match(search)
-      ));
+    diveSpots = diveSpots.filter(ds => (ds.title + " " + ds.location).match(search));
   }
 
   res.render("diveSpots/index", { diveSpots });
