@@ -7,12 +7,17 @@ maptilerClient.config.apiKey = process.env.MAPTILER_API_KEY;
 module.exports.index = async (req, res) => {
   const { searchTerm } = req.query;
 
-  let diveSpots = await DiveSpot.find({});
+  // prepare diveSpots
+  let diveSpots;
 
   if (searchTerm) {
-    // search both the title or location contains term
+    // search both the title and/or location contains term
     const search = new RegExp(searchTerm, "i");
-    diveSpots = diveSpots.filter(ds => (ds.title + " " + ds.location).match(search));
+    diveSpots = await DiveSpot
+      .find({ $or: [{ title: search },{ location: search }] })
+      .exec();
+  } else {
+    diveSpots = await DiveSpot.find();
   }
 
   res.render("diveSpots/index", { diveSpots });

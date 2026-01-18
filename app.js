@@ -23,7 +23,7 @@ const cspConfig = require('./utils/contentSecurityPolicyConfig');
 const { MongoStore } = require('connect-mongo');
 const prodDb = process.env.MONGODB_URI;
 const localDb = "mongodb://localhost:27017/plunge";
-const mongoUrl = process.env.NODE_ENV === "production"
+const mongoUrl = process.env.NODE_ENV !== "production"
   ? prodDb
   : localDb;
 
