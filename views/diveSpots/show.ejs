@@ -95,7 +95,8 @@
 <!-- Show map script -->
 <%-"<script>" %>
   const maptilerApiKey = "<%- process.env.NODE_ENV === "production" ? process.env.MAPTILER_CLIENT_API_KEY : process.env.MAPTILER_API_KEY %>"
-  const diveSpot = <%- JSON.stringify(diveSpot) %>;
+  <% const diveSpotGeoData = { title: diveSpot.title, location: diveSpot.location, geometry: diveSpot.geometry } %>
+  const diveSpot = <%- JSON.stringify(diveSpotGeoData) %>;
 <%-"</script>" %>
 
 <script src="/js/showMapPage.js"></script>
