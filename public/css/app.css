@@ -1,5 +1,9 @@
 body {
-    background-color: #00dfee;
+  background: linear-gradient(to bottom, #EEEAAA, #D4F7F7, #71D3F4);
+  /* Fallback color if the gradient is not supported */
+  background-color: #71D3F4; 
+  /* Ensures the gradient covers the entire viewport */
+  background-attachment: fixed; 
 }
 
 #cluster-map {
