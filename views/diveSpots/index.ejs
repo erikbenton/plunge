@@ -29,7 +29,7 @@
 <% } %>
 
 <%- "<script>" %>
-const maptilerApiKey = "<%- process.env.MAPTILER_API_KEY %>";
+const maptilerApiKey = "<%- process.env.NODE_ENV === "production" ? process.env.MAPTILER_CLIENT_API_KEY : process.env.MAPTILER_API_KEY %>"
 const diveSpots = {
   type: "FeatureCollection",
   features: <%- JSON.stringify(
