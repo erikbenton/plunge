@@ -14,7 +14,7 @@ module.exports.index = async (req, res) => {
     // search both the title and/or location contains term
     const search = new RegExp(searchTerm, "i");
     diveSpots = await DiveSpot
-      .find({ $or: [{ title: search },{ location: search }] })
+      .find({ $or: [{ title: search }, { location: search }] })
       .exec();
   } else {
     diveSpots = await DiveSpot.find();
@@ -29,17 +29,30 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.create = async (req, res, next) => {
   const images = req.files.map(f => ({ url: f.path, filename: f.filename }));
-  const geoData = await maptilerClient.geocoding.forward(req.body.diveSpot.location);
-  if (geoData.features.length === 0) {
-    req.setNotification("error", "Could not geocode that location. Please try again with a valid location.");
-    return res.redirect("/diveSpots/new");
-  }
+  const { latitude, longitude } = req.body.diveSpot;
+
   const diveSpot = new DiveSpot(req.body.diveSpot);
-  const geolocation = geoData.features[0];
-  diveSpot.geometry = geolocation.geometry;
+
+  // if the user chose a spot on the map
+  if (latitude && longitude) {
+    const geometry = { type: "Point", coordinates: [longitude, latitude] };
+    diveSpot.geometry = geometry;
+  } else { // else the user did not choose a spot on the map
+    // have mapTiler find the correct location
+    const geoData = await maptilerClient.geocoding.forward(req.body.diveSpot.location);
+    if (geoData.features.length === 0) {
+      req.setNotification("error", "Could not geocode that location. Please try picking a spot on the map.");
+      return res.redirect("/diveSpots/new");
+    }
+    const geolocation = geoData.features[0];
+    diveSpot.geometry = geolocation.geometry;
+  }
+
   diveSpot.author = req.user._id
   diveSpot.images = images;
+
   await diveSpot.save();
+
   req.setNotification("success", "Successfully made a new dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 };
@@ -67,14 +80,24 @@ module.exports.renderEditForm = async (req, res) => {
 module.exports.edit = async (req, res) => {
   const { id } = req.params;
   const images = req.files.map(f => ({ url: f.path, filename: f.filename }));
+  const { latitude, longitude } = req.body.diveSpot;
 
-  const geoData = await maptilerClient.geocoding.forward(req.body.diveSpot.location);
-  if (geoData.features.length === 0) {
-    req.setNotification("error", "Could not geocode that location. Please try again with a valid location.");
-    return res.redirect(`/diveSpots/${id}/edit`);
+  const diveSpot = await DiveSpot.findById(id);
+
+  // if the user chose a spot on the map
+  if (latitude && longitude) {
+    // update the geometry's coordinates
+    diveSpot.geometry.coordinates = [longitude, latitude];
+  } else { // else the user did not choose a spot on the map
+    // have mapTiler find the correct location
+    const geoData = await maptilerClient.geocoding.forward(req.body.diveSpot.location);
+    if (geoData.features.length === 0) {
+      req.setNotification("error", "Could not geocode that location. Please try picking a spot on the map.");
+      return res.redirect(`/diveSpots/edit/${id}`);
+    }
+    const geolocation = geoData.features[0];
+    diveSpot.geometry = geolocation.geometry;
   }
-
-  const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot });
 
   if (req.body.deleteImages) {
     const { deleteImages } = req.body;
@@ -84,10 +107,16 @@ module.exports.edit = async (req, res) => {
     diveSpot.images = diveSpot.images.filter(img => !deleteImages.includes(img.filename));
   }
 
+  // update all of the other fields
+  const changedDiveSpot = req.body.diveSpot;
   diveSpot.images.push(...images);
-  const geolocation = geoData.features[0];
-  diveSpot.geometry = geolocation.geometry;
+  diveSpot.title = changedDiveSpot.title;
+  diveSpot.location = changedDiveSpot.location;
+  diveSpot.depth = changedDiveSpot.depth;
+  diveSpot.description = changedDiveSpot.description;
+
   await diveSpot.save();
+
   req.setNotification("success", "Successfully updated the dive spot!");
   res.redirect(`/diveSpots/${diveSpot._id}`);
 };

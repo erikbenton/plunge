@@ -29,6 +29,8 @@ module.exports.diveSpotSchema = Joi.object({
     depth: Joi.number().required().min(0).max(99999),
     //images: Joi.string().required(),
     location: Joi.string().required().escapeHTML(),
+    latitude: Joi.number(),
+    longitude: Joi.number(),
     description: Joi.string().required().min(0).max(5000).escapeHTML()
   }).required(),
   deleteImages: Joi.array()
