@@ -9,6 +9,8 @@ let marker = new maptilersdk.Marker();
 
 let longitude = document.getElementById("longitude");
 let latitude = document.getElementById("latitude");
+let clearButton = document.getElementById("clear-button");
+let resetButton = document.getElementById("reset-button");
 
 const map = new maptilersdk.Map({
   container: "map",
@@ -18,7 +20,7 @@ const map = new maptilersdk.Map({
 });
 
 // add on-click handler
-map.on('click', (e) => {
+map.on("click", (e) => {
   // remove the original marker
   marker.remove();
 
@@ -41,3 +43,26 @@ if (typeof diveSpot !== "undefined") {
   longitude.value = mapConfig.coordinates[0];
   latitude.value = mapConfig.coordinates[1];
 }
+
+// functions for clearing the map
+function clearMap() {
+  marker.remove();
+  longitude.value = "";
+  latitude.value = "";
+};
+
+function resetMap() {
+  if (typeof diveSpot === "undefined") {
+    clearMap();
+  } else {
+    marker.remove();
+    marker = new maptilersdk.Marker().setLngLat(mapConfig.coordinates);
+    marker.addTo(map);
+    longitude.value = mapConfig.coordinates[0];
+    latitude.value = mapConfig.coordinates[1];
+  }
+};
+
+// add the onclick handlers
+clearButton.onclick = clearMap;
+resetButton.onclick = resetMap;
