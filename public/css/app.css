@@ -1,9 +1,9 @@
 body {
-  background: linear-gradient(to bottom, #EEEAAA, #D4F7F7, #71D3F4);
-  /* Fallback color if the gradient is not supported */
-  background-color: #71D3F4; 
-  /* Ensures the gradient covers the entire viewport */
-  background-attachment: fixed; 
+    background: linear-gradient(to bottom, #EEEAAA, #D4F7F7, #71D3F4);
+    /* Fallback color if the gradient is not supported */
+    background-color: #71D3F4;
+    /* Ensures the gradient covers the entire viewport */
+    background-attachment: fixed;
 }
 
 #cluster-map {
@@ -22,4 +22,14 @@ body {
 
 .plunge-footer {
     background-color: #5ad1f8;
+}
+
+#nav-profile-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.no-toggle.dropdown-toggle::after {
+    display: none !important;
 }

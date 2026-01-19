@@ -19,7 +19,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="ms-auto me-2 d-flex align-items-center">
+            <div class="ms-auto d-flex align-items-center">
                 <div class="ms-md-auto me-1 col-7 col-sm-5 col-md-auto">
                     <form method="get" action="/diveSpots" class="d-flex" role="search">
                         <input id="search-term" name="searchTerm" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -35,8 +35,13 @@
                             <a class="nav-link" href="/register">Register</a>
                         </li>
                     <% } else { %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout, <%= currentUser.username %></a>
+                        <li class="nav-item dropdown">
+                            <button class="btn no-toggle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img id="nav-profile-icon" src="/img/profile-icon.svg" alt="profile icon" >
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
+                                <li><a class="dropdown-item" href="/logout">Logout, <%= currentUser.username %></a></li>
+                            </ul>
                         </li>
                     <% } %>
                 </ul>
