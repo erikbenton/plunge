@@ -47,8 +47,8 @@ if (typeof diveSpot !== "undefined") {
 // functions for clearing the map
 function clearMap() {
   marker.remove();
-  longitude.value = "";
-  latitude.value = "";
+  longitude.value = null;
+  latitude.vlue = null;
 };
 
 function resetMap() {

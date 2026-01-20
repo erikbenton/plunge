@@ -10,8 +10,6 @@ const DiveSpotSchema = new Schema({
   description: String,
   depth: Number,
   location: String,
-  latitude: Number,
-  longitude: Number,
   geometry: {
     type: {
       type: String,

@@ -29,7 +29,7 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.create = async (req, res, next) => {
   const images = req.files.map(f => ({ url: f.path, filename: f.filename }));
-  const { latitude, longitude } = req.body.diveSpot;
+  const { latitude, longitude } = req.body.coordinates;
 
   const diveSpot = new DiveSpot(req.body.diveSpot);
 
@@ -80,9 +80,10 @@ module.exports.renderEditForm = async (req, res) => {
 module.exports.edit = async (req, res) => {
   const { id } = req.params;
   const images = req.files.map(f => ({ url: f.path, filename: f.filename }));
-  const { latitude, longitude } = req.body.diveSpot;
+  const { latitude, longitude } = req.body.coordinates;
 
-  const diveSpot = await DiveSpot.findById(id);
+  // get the dive spot and default update everything
+  const diveSpot = await DiveSpot.findByIdAndUpdate(id, { ...req.body.diveSpot });
 
   // if the user chose a spot on the map
   if (latitude && longitude) {
@@ -93,7 +94,7 @@ module.exports.edit = async (req, res) => {
     const geoData = await maptilerClient.geocoding.forward(req.body.diveSpot.location);
     if (geoData.features.length === 0) {
       req.setNotification("error", "Could not geocode that location. Please try picking a spot on the map.");
-      return res.redirect(`/diveSpots/edit/${id}`);
+      return res.redirect(`/diveSpots/${id}/edit`);
     }
     const geolocation = geoData.features[0];
     diveSpot.geometry = geolocation.geometry;
@@ -107,13 +108,8 @@ module.exports.edit = async (req, res) => {
     diveSpot.images = diveSpot.images.filter(img => !deleteImages.includes(img.filename));
   }
 
-  // update all of the other fields
-  const changedDiveSpot = req.body.diveSpot;
+  // update the images
   diveSpot.images.push(...images);
-  diveSpot.title = changedDiveSpot.title;
-  diveSpot.location = changedDiveSpot.location;
-  diveSpot.depth = changedDiveSpot.depth;
-  diveSpot.description = changedDiveSpot.description;
 
   await diveSpot.save();
 
