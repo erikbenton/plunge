@@ -1,8 +1,10 @@
 maptilersdk.config.apiKey = maptilerApiKey;
 
-let mapConfig = typeof diveSpot !== "undefined"
-  ? { coordinates: diveSpot.geometry.coordinates, zoom: 13 }
-  : { coordinates: [0, 0], zoom: -0.1 };
+const newDiveSpotConfig = { coordinates: [0, 0], zoom: -0.1, newDiveSpot: true };
+
+const mapConfig = typeof diveSpot !== "undefined"
+  ? { coordinates: diveSpot.geometry.coordinates, zoom: 13, newDiveSpot: false }
+  : newDiveSpotConfig;
 
 // initialize marker
 let marker = new maptilersdk.Marker();
@@ -34,7 +36,7 @@ map.on("click", (e) => {
 });
 
 // If a spot has already been chosen
-if (typeof diveSpot !== "undefined") {
+if (!mapConfig.newDiveSpot) {
   // add it to the map
   marker = new maptilersdk.Marker().setLngLat(mapConfig.coordinates);
   marker.addTo(map);
@@ -52,7 +54,7 @@ function clearMap() {
 };
 
 function resetMap() {
-  if (typeof diveSpot === "undefined") {
+  if (mapConfig.newDiveSpot) {
     clearMap();
   } else {
     marker.remove();
