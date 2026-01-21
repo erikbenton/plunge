@@ -68,6 +68,7 @@ This is still a work-in-progress, but some things to add in the future:
     * Similar to "hiking reports" for hiking trails: not quite a Review, but a more personal experience with the area.
 * User messaging
     * Have a question about someone's Plunge Site? Try asking them via a message.
+* Add tidal data and visibility data using an external API like NOAA
 
 # Lessons Learned
 
@@ -76,6 +77,8 @@ I learned how to implement the basics of a content security policy, how to prote
 I learned how to manage uploading User files to an external vendor ([Cloudinary](https://cloudinary.com/)), put limits in place to prevent malicious abuse, and make resource retrieval more efficient.
 
 I learned how to manage and protect API Keys for various environments (server-side vs client-side keys) and to be aware of what is shared with the client, since a browser keeps no secrets.
+
+I learned how to use Docker to make development and testing easier and cleaner.
 
 I learned that basic HTML, CSS, and JS can do quite a lot on their own without a library or framework such as React or Angular to help.
 
